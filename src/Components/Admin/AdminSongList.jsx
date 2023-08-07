@@ -1,13 +1,11 @@
 import { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import Nav from './Nav'
 
-export default function Shows () {
+export default function AdminSongList () {
     return (
         <div>
             <div className="home-page">
-                <Nav />
-                <h1>Shows</h1>
+                <h1>Admin Song List</h1>
             </div>
         </div>
     )
