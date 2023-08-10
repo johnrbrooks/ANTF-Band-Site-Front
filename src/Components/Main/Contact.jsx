@@ -1,5 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import Nav from './Nav'
+import Footer from './Footer'
 
 export default function Contact () {
 
@@ -36,6 +38,7 @@ export default function Contact () {
 
     return (
         <div>
+            <Nav />
             <div className="contact-section">
                 <form action="" className="contact-form" onSubmit={onSubmit}>
                     <div className="call-to-action-container">
@@ -60,6 +63,7 @@ export default function Contact () {
                     <button className='contact-submit-button' type='submit'>Submit</button>
                 </form>
             </div>
+            <Footer />
         </div>
     )
 }

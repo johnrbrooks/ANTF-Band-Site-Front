@@ -1,7 +1,8 @@
 export default function LatestClip() {
     return (
         <div className='latest-clip'>
-            <h1 className='clip-header'>Listen</h1>
+            <h1 className='feature-title'>Listen</h1>
+            <hr />
             <iframe 
                 className='youtube-clip'
                 src="https://www.youtube.com/embed/xfLgrn7IHkk" 
