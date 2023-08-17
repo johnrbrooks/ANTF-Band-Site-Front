@@ -6,6 +6,8 @@ import Shows from './Components/Main/Shows'
 import SongList from './Components/Main/SongList'
 import Contact from './Components/Main/Contact'
 
+export const BASE_URL = `https://antf-band-site-back-production.up.railway.app/api/`
+
 function App() {
 
   return (

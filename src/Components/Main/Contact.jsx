@@ -1,5 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { BASE_URL } from '../../App'
+import axios from 'axios'
 import Nav from './Nav'
 import Footer from './Footer'
 
@@ -32,9 +34,20 @@ export default function Contact () {
 
         if (missingFields.length > 0) {
             setErrorMessage(`All fields are required.`)
+            return
         }
+
+        submitForm()
     }
 
+    const submitForm = async() => {
+        try {
+            const formSubmission = await axios.post(`${BASE_URL}/forms/create`, formData)
+            setFormData(initialState)
+        } catch (error) {
+            console.error('Error submitting form:', error)
+        }
+    }
 
     return (
         <div>
@@ -47,18 +60,18 @@ export default function Contact () {
                     </div>
                     <p className="disclaimer">*All fields are required.</p>
                     <label htmlFor="">Name:</label>
-                    <input type="text" placeholder='John Doe' name='name' className='input-box' onChange={handleChange}/>
+                    <input type="text" placeholder='John Doe' name='name' className='input-box' value={formData.name} onChange={handleChange}/>
                     <label htmlFor="">Email:</label>
-                    <input type="text" placeholder='example@example.com' name='email' className='input-box' onChange={handleChange}/>
+                    <input type="text" placeholder='example@example.com' name='email' className='input-box' value={formData.email} onChange={handleChange}/>
                     <label htmlFor="">How'd you hear about us?</label>
-                    <select name="reference" id='reference' onChange={handleChange}>
+                    <select name="reference" id='reference' value={formData.reference} onChange={handleChange}>
                         <option value=""></option>
                         <option value="Saw a show">Saw a show</option>
                         <option value="From a friend">From a friend</option>
                         <option value="Social Media">Social Media</option>
                     </select>
                     <label htmlFor="">Message:</label>
-                    <textarea className='text-box' name='message' placeholder='I have a gig for you guys...' cols="30" rows="10" onChange={handleChange}></textarea>
+                    <textarea className='text-box' value={formData.message}name='message' placeholder='I have a gig for you guys...' cols="30" rows="10" onChange={handleChange}></textarea>
                     {errorMessage && <p className='error-message'>{errorMessage}</p>}
                     <button className='contact-submit-button' type='submit'>Submit</button>
                 </form>
