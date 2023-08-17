@@ -13,7 +13,7 @@
 
 body {
   /* background-image: url('src/assets/images/2022-11-25 12.50.57-2.jpg'); */
-  background-image: url('https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/361179024_803359251556836_3681854178579980743_n.jpg?_nc_cat=106&cb=99be929b-59f725be&ccb=1-7&_nc_sid=730e14&_nc_ohc=AMS9mlcFz58AX_k9bDg&_nc_ht=scontent-iad3-2.xx&oh=00_AfAazvq7FGS83LCKBxzGQO4o4H8x__a63hFql1n6X00KaQ&oe=64D9E6C0');
+  background-image: url('src/assets/images/bandPic.jpeg');
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -185,13 +185,13 @@ h1 {
 .contact-form {
   /* border: rgba(111, 45, 168, 0.7) solid 2px; */
   border-radius: 25px 0 25px 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 3rem;
-  min-width: 50%;
+  min-width: 40%;
 }
 
 .disclaimer {
@@ -251,7 +251,7 @@ select {
   padding: 1rem 3rem;
   font-size: 1.25rem;
   border-radius: 15px;
-  border: none;
+  border: solid 2px white;
   color: white;
   background-color:rgba(74, 30, 113, 0.1);
 }
