@@ -12,7 +12,9 @@ export default function Home () {
             <div className="home-page">
                 <Nav />
                 <div className="main">
-                    <img src="src/assets/images/ANTF_logo_white text w purple (2).png" className='main-logo' alt="" />
+                    <Link to='/about'>
+                        <img src="src/assets/images/ANTF_logo_white text w purple (2).png" className='main-logo' alt="" />
+                    </Link>
                     <h2 className="tagline">pop punk cover band from NOVA playing your favorite songs from those angsty emo years</h2>
                     <div className="members-grid">
                         <Link to='/about'>

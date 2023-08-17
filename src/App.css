@@ -268,6 +268,12 @@ select {
   margin-top: 2rem;
 }
 
+.success-message {
+  color: green;
+  font-family: 'Rubik', sans-serif;
+  margin-top: 2rem;
+}
+
 .feature-section {
   min-width: 50%;
   display: flex;
@@ -338,6 +344,57 @@ hr {
   height: 350px;
   border-radius: 25px;
   box-shadow:0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* ABOUT PAGE */
+
+.about-page {
+  background-image: url('src/assets/images/RockBandPic.jpg');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-color: rgb(52, 52, 52);
+  background-blend-mode: multiply;
+  font-family: 'Rubik', sans-serif;
+}
+
+.about-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-title {
+  font-size: 4rem;
+  margin: 2rem 0;
+}
+
+.band-about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+}
+
+.band-promo-pic {
+  width: 300px;
+  height: 440px;
+  border-radius: 5px;
+}
+
+.about-blurb {
+  color: white;
+  letter-spacing: 2px;
+  line-height: 30px;
+  margin-left: 3rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: white solid 2px;
+  padding: 3.25rem;
+  max-height: 440px;
+  overflow: auto;
 }
 
 @media screen and (max-width: 1200px) {
