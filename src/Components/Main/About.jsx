@@ -21,9 +21,9 @@ export default function About () {
                         if you had an A Day To Remember CD in your car and get the reference. ;-)
                         </p>
                     </div>
-                    <div className="members-grid">
+                    <div className="about-members-grid">
                         <div className="member-section">
-                            <img src="src/assets/images/TylerGoofy.jpg" alt="" className="member-image" />
+                            <img src="src/assets/images/TylerGoofy.jpg" alt="" className="about-member-image" />
                             <div className="member-content">
                                 <h2 className="member-name">Tyler Schafer</h2>
                                 <h3 className="member-role">Lead Vocals, Guitar, Air/Chest Drums</h3>
@@ -36,7 +36,7 @@ export default function About () {
                             </div>
                         </div>
                         <div className="member-section">
-                            <img src="src/assets/images/JohnGoofy.jpg" alt="" className="member-image" />
+                            <img src="src/assets/images/JohnGoofy.jpg" alt="" className="about-member-image" />
                             <div className="member-content">
                                 <h2 className="member-name">John Brooks</h2>
                                 <h3 className="member-role">Lead Guitar, Setlists, Windowsill Whiskey Sours</h3>
@@ -49,7 +49,7 @@ export default function About () {
                             </div>
                         </div>
                         <div className="member-section">
-                            <img src="src/assets/images/JasonGoofy.jpg" alt="" className="member-image" />
+                            <img src="src/assets/images/JasonGoofy.jpg" alt="" className="about-member-image" />
                             <div className="member-content">
                                 <h2 className="member-name">Jason Eller</h2>
                                 <h3 className="member-role">Bass, Backing Vocals, IEM Rig</h3>
@@ -62,13 +62,13 @@ export default function About () {
                             </div>
                         </div>
                         <div className="member-section">
-                            <img src="src/assets/images/JamesGoofy.jpg" alt="" className="member-image" />
+                            <img src="src/assets/images/jamesPic.jpeg" alt="" className="about-member-image" />
                             <div className="member-content">
                                 <h2 className="member-name">James Rocket (Adelsberger)</h2>
                                 <h3 className="member-role">Drums, Band Morale, Blisters</h3>
                                 <hr />
                                 <p className="member-about">
-                                James is working on his OT certification when he’s not playing drums or guitar with one of his
+                                James usually spends his time playing drums or guitar with one of his
                                 273 side projects (only a mild exaggeration). He was the mastermind behind the half-time
                                 breakdown in The Middle. You’re welcome for the spiciness.
                                 </p>
