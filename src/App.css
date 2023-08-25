@@ -161,6 +161,13 @@ footer {
   border: solid 3px white;
 }
 
+.quick-view-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 80%;
+  place-items: center center;
+}
+
 h1 {
   color: white;
 }

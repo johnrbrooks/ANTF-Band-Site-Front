@@ -18,18 +18,22 @@ export default function Home () {
                     <h2 className="tagline">pop punk cover band from NOVA playing your favorite songs from those angsty emo years</h2>
                     <div className="members-grid">
                         <Link to='/about'>
-                            <img className='member-image' src="src/assets/images/tylerPic.jpeg" alt="" />
+                            <img className='member-image' src="/images/tylerPic.jpeg" alt="" />
                         </Link>
                         <Link to='/about'>
-                            <img className='member-image' src="src/assets/images/johnPic.jpeg" alt="" />
+                            <img className='member-image' src="/images/johnPic.jpeg" alt="" />
                         </Link>
                         <Link to='/about'>
-                            <img className='member-image' src="src/assets/images/jasonPic.jpeg" alt="" />
+                            <img className='member-image' src="/images/jasonPic.jpeg" alt="" />
                         </Link>
                         <Link to='/about'>
-                            <img className='member-image' src="src/assets/images/jamesPic.jpeg" alt="" />
+                            <img className='member-image' src="/images/jamesPic.jpeg" alt="" />
                         </Link>
                     </div>
+                    {/* <div className="quick-view-container">
+                        <LatestClip />
+                        <NextShow />
+                    </div> */}
                 </div>
                 <Footer />
             </div>
