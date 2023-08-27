@@ -18,16 +18,16 @@ export default function Home () {
                     <h2 className="tagline">pop punk cover band from NOVA playing your favorite songs from those angsty emo years</h2>
                     <div className="members-grid">
                         <Link to='/about'>
-                            <img className='member-image' src="/images/tylerPic.jpeg" alt="" />
+                            <img className='member-image' src="https://github.com/johnrbrooks/ANTF-Band-Site-Front/blob/main/public/images/tylerPic.jpeg?raw=true" alt="" />
                         </Link>
                         <Link to='/about'>
-                            <img className='member-image' src="/images/johnPic.jpeg" alt="" />
+                            <img className='member-image' src="https://github.com/johnrbrooks/ANTF-Band-Site-Front/blob/main/public/images/johnPic.jpeg?raw=true" alt="" />
                         </Link>
                         <Link to='/about'>
-                            <img className='member-image' src="/images/jasonPic.jpeg" alt="" />
+                            <img className='member-image' src="https://github.com/johnrbrooks/ANTF-Band-Site-Front/blob/main/public/images/jasonPic.jpeg?raw=true" alt="" />
                         </Link>
                         <Link to='/about'>
-                            <img className='member-image' src="/images/jamesPic.jpeg" alt="" />
+                            <img className='member-image' src="https://github.com/johnrbrooks/ANTF-Band-Site-Front/blob/main/public/images/jamesPic.jpeg?raw=true" alt="" />
                         </Link>
                     </div>
                     {/* <div className="quick-view-container">
