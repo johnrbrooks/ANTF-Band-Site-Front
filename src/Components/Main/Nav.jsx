@@ -11,7 +11,6 @@ export default function Nav () {
             <nav>
                 <div className="logo-container">
                     <Link to="/home"><img src="/images/ANTF_logo_white text w purple (2).png" className='nav-logo' alt="ANTF Logo" /></Link>
-                    <Link to="/home"><img src="/vite.svg" className='nav-logo' alt="ANTF Logo" /></Link>
                 </div>
                 <div className="nav-container">
                     <Link className='nav-item' to="/home">Home</Link>
