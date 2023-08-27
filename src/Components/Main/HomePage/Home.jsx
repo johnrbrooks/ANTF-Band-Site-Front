@@ -13,21 +13,21 @@ export default function Home () {
                 <Nav />
                 <div className="main">
                     <Link to='/about'>
-                        <img src="src/assets/images/ANTF_logo_white text w purple (2).png" className='main-logo' alt="" />
+                        <img src="/images/ANTF_logo_white text w purple (2).png" className='main-logo' alt="" />
                     </Link>
                     <h2 className="tagline">pop punk cover band from NOVA playing your favorite songs from those angsty emo years</h2>
                     <div className="members-grid">
                         <Link to='/about'>
-                            <img className='member-image' src="https://github.com/johnrbrooks/ANTF-Band-Site-Front/blob/main/public/images/tylerPic.jpeg?raw=true" alt="" />
+                            <img className='member-image' src="/images/tylerPic.jpeg" alt="" />
                         </Link>
                         <Link to='/about'>
-                            <img className='member-image' src="https://github.com/johnrbrooks/ANTF-Band-Site-Front/blob/main/public/images/johnPic.jpeg?raw=true" alt="" />
+                            <img className='member-image' src="/images/johnPic.jpeg" alt="" />
                         </Link>
                         <Link to='/about'>
-                            <img className='member-image' src="https://github.com/johnrbrooks/ANTF-Band-Site-Front/blob/main/public/images/jasonPic.jpeg?raw=true" alt="" />
+                            <img className='member-image' src="/images/jasonPic.jpeg" alt="" />
                         </Link>
                         <Link to='/about'>
-                            <img className='member-image' src="https://github.com/johnrbrooks/ANTF-Band-Site-Front/blob/main/public/images/jamesPic.jpeg?raw=true" alt="" />
+                            <img className='member-image' src="/images/jamesPic.jpeg" alt="" />
                         </Link>
                     </div>
                     {/* <div className="quick-view-container">

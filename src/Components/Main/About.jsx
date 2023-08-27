@@ -11,7 +11,7 @@ export default function About () {
                 <div className="about-content-container">
                     <h1 className='page-title'>About</h1>
                     <div className="band-about">
-                        <img className='band-promo-pic' src="src/assets/images/bandPromoPic.JPG" alt="" />
+                        <img className='band-promo-pic' src="/images/bandPromoPic.JPG" alt="" />
                         <p className='about-blurb'>
                         A Night To Forget plays all your favorite angsty songs from grade school,
                         high school, or college (depending on the extent to which you're an elder emo)
@@ -23,7 +23,7 @@ export default function About () {
                     </div>
                     <div className="about-members-grid">
                         <div className="member-section">
-                            <img src="src/assets/images/TylerGoofy.jpg" alt="" className="about-member-image" />
+                            <img src="/images/TylerGoofy.jpg" alt="" className="about-member-image" />
                             <div className="member-content">
                                 <h2 className="member-name">Tyler Schafer</h2>
                                 <h3 className="member-role">Lead Vocals, Guitar, Air/Chest Drums</h3>
@@ -36,7 +36,7 @@ export default function About () {
                             </div>
                         </div>
                         <div className="member-section">
-                            <img src="src/assets/images/JohnGoofy.jpg" alt="" className="about-member-image" />
+                            <img src="/images/JohnGoofy.jpg" alt="" className="about-member-image" />
                             <div className="member-content">
                                 <h2 className="member-name">John Brooks</h2>
                                 <h3 className="member-role">Lead Guitar, Setlists, Windowsill Whiskey Sours</h3>
@@ -49,7 +49,7 @@ export default function About () {
                             </div>
                         </div>
                         <div className="member-section">
-                            <img src="src/assets/images/JasonGoofy.jpg" alt="" className="about-member-image" />
+                            <img src="/images/JasonGoofy.jpg" alt="" className="about-member-image" />
                             <div className="member-content">
                                 <h2 className="member-name">Jason Eller</h2>
                                 <h3 className="member-role">Bass, Backing Vocals, IEM Rig</h3>
@@ -62,7 +62,7 @@ export default function About () {
                             </div>
                         </div>
                         <div className="member-section">
-                            <img src="src/assets/images/jamesPic.jpeg" alt="" className="about-member-image" />
+                            <img src="/images/jamesPic.jpeg" alt="" className="about-member-image" />
                             <div className="member-content">
                                 <h2 className="member-name">James Rocket (Adelsberger)</h2>
                                 <h3 className="member-role">Drums, Band Morale, Blisters</h3>

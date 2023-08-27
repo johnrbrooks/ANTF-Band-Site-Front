@@ -13,7 +13,7 @@
 
 body {
   /* background-image: url('src/assets/images/2022-11-25 12.50.57-2.jpg'); */
-  background-image: url('src/assets/images/bandPic.jpeg');
+  background-image: url('/images/bandPic.jpeg');
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -357,7 +357,7 @@ hr {
 /* ABOUT PAGE */
 
 .about-page {
-  background-image: url('src/assets/images/RockBandPic.jpg');
+  background-image: url('/images/RockBandPic.jpg');
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
