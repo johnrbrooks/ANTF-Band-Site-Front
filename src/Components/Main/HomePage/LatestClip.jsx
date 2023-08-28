@@ -7,7 +7,6 @@ export default function LatestClip() {
     useEffect(() => {
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                console.log("Is intersecting:", entry.isIntersecting)
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible')
                 } else {
