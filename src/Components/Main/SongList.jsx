@@ -60,7 +60,7 @@ export default function SongList () {
                         </div>
                         <hr className="table-break" />
                         {searchResults.map((song) => (
-                            <div className="song-details-grid" id={song._id}>
+                            <div className="song-details-grid" key={song._id}>
                                 <p className="song-name">{song.name}</p>
                                 <p className="song-artist">{song.artist}</p>
                             </div>

@@ -30,10 +30,10 @@ export default function Home () {
                             <img className='member-image' src="/images/jamesPic.jpeg" alt="" />
                         </Link>
                     </div>
-                    {/* <div className="quick-view-container">
+                    <div className="quick-view-container">
                         <LatestClip />
                         <NextShow />
-                    </div> */}
+                    </div>
                 </div>
                 <Footer />
             </div>
