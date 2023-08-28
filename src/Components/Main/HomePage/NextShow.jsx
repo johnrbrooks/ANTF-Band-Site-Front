@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { BASE_URL } from '../../../App'
 import axios from 'axios'
 import moment from 'moment'
@@ -8,6 +8,31 @@ export default function NextShow () {
 
     const [shows, setShows] = useState([])
     const [nextShow, setNextShow] = useState()
+
+    const elementRef = useRef(null)
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                console.log("Is intersecting:", entry.isIntersecting)
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible')
+                } else {
+                    entry.target.classList.remove('visible')
+                }
+            })
+        }, { threshold: 0.1 })
+
+            if(elementRef.current) {
+                observer.observe(elementRef.current)
+            }
+
+            return () => {
+                if (elementRef.current) {
+                    observer.unobserve(elementRef.current)
+                }
+            }
+        }, [shows])
 
     useEffect(() => {
         const getShows = async() => {
@@ -39,8 +64,8 @@ export default function NextShow () {
 
 
     return nextShow ? (
-        <Link to='/shows' className="shows-link">
-            <div className="next-show">
+        <Link to='/shows' className="shows-link" ref={elementRef}>
+            <div className="next-show" >
                 <h1 className='feature-title'>Next Show</h1>
                 <hr />
                 <h2 className='show-title'>{nextShow.venue}</h2>

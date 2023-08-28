@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useContext, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../Nav'
 import Footer from '../Footer'
@@ -7,6 +7,31 @@ import LatestClip from './LatestClip'
 import Contact from '../Contact'
 
 export default function Home () {
+
+    const elementRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible')
+                } else {
+                    entry.target.classList.remove('visible')
+                }
+            }, { threshold: 0.1 })
+
+            if(elementRef.current) {
+                observer.observe(elementRef.current)
+            }
+
+            return () => {
+                if (elementRef.current) {
+                    observer.unobserve(elementRef.current)
+                }
+            }
+        })
+    }, [])
+
     return (
         <div>
             <div className="home-page">
@@ -18,16 +43,16 @@ export default function Home () {
                     <h2 className="tagline">pop punk cover band from NOVA playing your favorite songs from those angsty emo years</h2>
                     <div className="members-grid">
                         <Link to='/about'>
-                            <img className='member-image' src="/images/tylerPic.jpeg" alt="" />
+                            <img className='member-image one' src="/images/tylerPic.jpeg" alt="" />
                         </Link>
                         <Link to='/about'>
-                            <img className='member-image' src="/images/johnPic.jpeg" alt="" />
+                            <img className='member-image two' src="/images/johnPic.jpeg" alt="" />
                         </Link>
                         <Link to='/about'>
-                            <img className='member-image' src="/images/jasonPic.jpeg" alt="" />
+                            <img className='member-image three' src="/images/jasonPic.jpeg" alt="" />
                         </Link>
                         <Link to='/about'>
-                            <img className='member-image' src="/images/jamesPic.jpeg" alt="" />
+                            <img className='member-image four' src="/images/jamesPic.jpeg" alt="" />
                         </Link>
                     </div>
                     <div className="quick-view-container">
