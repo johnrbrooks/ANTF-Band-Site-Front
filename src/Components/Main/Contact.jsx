@@ -1,6 +1,7 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useRef, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { BASE_URL } from '../../App'
+import emailjs from '@emailjs/browser'
 import axios from 'axios'
 import Nav from './Nav'
 import Footer from './Footer'
@@ -13,6 +14,8 @@ export default function Contact () {
         reference: '',
         message: '',
     }
+
+    const form = useRef()
 
     const [formData, setFormData] = useState(initialState)
     const [errorMessage, setErrorMessage] = useState('')
@@ -30,22 +33,35 @@ export default function Contact () {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        const requiredFields = ['name', 'email', 'reference', 'message']
-
-        
-        const missingFields = requiredFields.filter((field) => !formData[field])
-        
+        const requiredFields = ['name', 'email', 'reference', 'message'] 
+        const missingFields = requiredFields.filter((field) => !formData[field])       
         if (missingFields.length > 0) {
             setErrorMessage(`All fields are required.`)
             return
         }
-        
         if(!formData.email.includes('@')) {
             setErrorMessage('You must use a valid email address.')
             return
         }
-
         submitForm()
+        sendEmail()
+    }
+
+    const sendEmail = () => {
+        emailjs.sendForm(
+            `${import.meta.env.VITE_SERVICE_ID}`, 
+            `${import.meta.env.VITE_TEMPLATE_ID}`, 
+            form.current, 
+            `${import.meta.env.VITE_PUBLIC_KEY}`
+        )
+        .then(
+            (result) => {
+                console.log(result.text)
+            },
+            (error) => {
+                console.log(error.text)
+            }
+        )
     }
 
     const submitForm = async() => {
@@ -62,7 +78,7 @@ export default function Contact () {
         <div>
             <Nav />
             <div className="contact-section">
-                <form action="" className="contact-form" onSubmit={onSubmit}>
+                <form action="" className="contact-form" ref={form} onSubmit={onSubmit}>
                     <div className="call-to-action-container">
                         <h1 className='call-to-action'>Got a gig or a question?</h1>
                         <h2 className='call-to-action'>Contact us below:</h2>
@@ -80,7 +96,7 @@ export default function Contact () {
                         <option value="Social Media">Social Media</option>
                     </select>
                     <label htmlFor="">Message:</label>
-                    <textarea className='text-box' value={formData.message}name='message' placeholder='I have a gig for you guys...' cols="30" rows="10" onChange={handleChange}></textarea>
+                    <textarea className='text-box' value={formData.message} name='message' placeholder='I have a gig for you guys...' cols="30" rows="10" onChange={handleChange}></textarea>
                     {errorMessage && <p className='error-message'>{errorMessage}</p>}
                     {successMessage && <p className='success-message'>{successMessage}</p>}
                     <button className='contact-submit-button' type='submit'>Submit</button>

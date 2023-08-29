@@ -37,7 +37,6 @@ export default function NextShow () {
         const getShows = async() => {
             try {
                 const response = await axios.get(`${BASE_URL}/shows/get/all`)
-                console.log(response.data)
                 if (response) {
                     setShows(response.data)
                 }
