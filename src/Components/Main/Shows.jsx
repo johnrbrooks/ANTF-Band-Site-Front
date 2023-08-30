@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useContext, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { BASE_URL } from '../../App'
 import axios from 'axios'
@@ -10,6 +10,8 @@ export default function Shows () {
 
     const [shows, setShows] = useState([])
     const [sortedShows, setSortedShows] = useState()
+
+    const elementRef = useRef(null)
 
     useEffect(() => {
         const getShows = async () => {
@@ -37,7 +39,6 @@ export default function Shows () {
         }
         sortShows()
     }, [shows])
-
 
     return sortedShows ? (
         <div>

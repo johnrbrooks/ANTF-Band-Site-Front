@@ -376,11 +376,14 @@ select {
 .shows-link {
   text-decoration: none;
   color: white;
-  width: 700px;
+  width: 600px;
   margin: 2rem;
   opacity: 0;
   transform: translateX(200px);
   transition: opacity 1s, transform 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .shows-link.visible {
@@ -521,17 +524,27 @@ hr {
 }
 
 .about-members-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 3rem 0;
-  width: 90%;
+  width: 45%;
 }
 
 .member-section {
   display: flex;
-  min-width: 100%;
+  width: 100%;
+  min-width: 500px;
   justify-content: center;
+  opacity: 0;
+  transform: translateX(200px);
+  transition: opacity 1s, transform 1s;
+}
+
+.member-section.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .about-member-image {
@@ -550,6 +563,7 @@ hr {
   padding: 2rem;
   flex: 1;
   max-height: 400px;
+  min-width: 400px;
   overflow: auto;
 }
 
@@ -593,6 +607,7 @@ hr {
   font-size: 1.25rem;
   border-radius: 5px;
   border: none;
+  background-image: ()
 }
 
 .search-bar:focus {
@@ -674,6 +689,8 @@ hr {
   min-width: 600px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  animation: fadeRight 1s ease-out forwards;
 }
 
 .show-data-container {
@@ -729,11 +746,6 @@ hr {
   }
 
   .about-members-grid {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 3rem 0;
     width: 80%;
   }
 

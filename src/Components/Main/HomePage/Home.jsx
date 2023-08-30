@@ -8,7 +8,7 @@ import Contact from '../Contact'
 
 export default function Home () {
 
-    const elementRef = useRef(null);
+    const elementRef = useRef(null)
 
     useEffect(() => {
         const observer = new IntersectionObserver(entries => {
