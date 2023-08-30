@@ -87,7 +87,7 @@ export default function About () {
                     </div>
                     {members.map((member, index) => (
                         <div className="about-members-grid">
-                            <div className="member-section" ref={refs[index]} key={index}>
+                            <div className="member-section" ref={refs[index]} key={member.name}>
                                 <img src={member.image} alt="" className="about-member-image" />
                                 <div className="member-content">
                                     <h2 className="member-name">{member.name}</h2>
