@@ -796,15 +796,17 @@ hr {
   min-width: 600px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5);
-  opacity: 1;
+  opacity: 0;
+  animation: fadeRight 1s ease-out forwards;
+  /* opacity: 0;
   transform: translateX(200px);
-  transition: opacity 1s, transform 1s;
+  transition: opacity 1s, transform 1s; */
 }
 
-.show-item.visible {
+/* .show-item.visible {
   opacity: 1;
   transform: translateX(0);
-}
+} */
 
 .show-data-container {
   display: flex;
