@@ -11,6 +11,9 @@ export default function Shows () {
     const [shows, setShows] = useState([])
     const [sortedShows, setSortedShows] = useState([])
 
+    const [isModalOpen, setModalOpen] = useState(false)
+    const [selectedCalendarLink, setSelectedCalendarLink] = useState(null)
+
     const showRefs = useRef({})
 
     useEffect(() => {
@@ -91,7 +94,20 @@ export default function Shows () {
         return url
     }
 
+    function openModal(show) {
+        setSelectedCalendarLink(generateCalendarLink(show))
+        setModalOpen(true)
+    }
+      
+    function confirmAddToCalendar() {
+        if (selectedCalendarLink) {
+            window.open(selectedCalendarLink, "_blank")
+        }
+        setModalOpen(false)
+    }
+
     return sortedShows ? (
+        
         <div>
             <div className="home-page">
                 <Nav />
@@ -115,11 +131,20 @@ export default function Shows () {
                                         <p className="show-data-info">{show.cover}</p>
                                     </div>
                                 </div>
-                                <a href={generateCalendarLink(show)} target="_blank" rel="noopener noreferrer" className="add-to-calendar-button">Add to Calendar</a>
+                                <button onClick={() => openModal(show)} className="add-to-calendar-button">Add to Calendar</button>
                             </div>
                         ))}
                     </div>
                 </div>
+                {isModalOpen && (
+                    <div className="modal-overlay">
+                    <div className="modal-content">
+                        <p>Do you want to be taken away from the site to add this event to your Google calendar?</p>
+                        <button onClick={confirmAddToCalendar}>Yes, leave site</button>
+                        <button onClick={() => setModalOpen(false)}>No, stay here</button>
+                    </div>
+                    </div>
+                )}
                 <Footer />
             </div>
         </div>

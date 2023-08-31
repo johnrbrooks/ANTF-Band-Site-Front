@@ -81,7 +81,7 @@ export default function Contact () {
                 <form action="" className="contact-form" ref={form} onSubmit={onSubmit}>
                     <div className="call-to-action-container">
                         <h1 className='call-to-action cta-header'>Got a gig or a question?</h1>
-                        <h2 className='call-to-action cta-subheader'>Contact us below:</h2>
+                        <h2 className='call-to-action'>Contact us below:</h2>
                     </div>
                     <p className="disclaimer">*All fields are required.</p>
                     <label htmlFor="">Name:</label>

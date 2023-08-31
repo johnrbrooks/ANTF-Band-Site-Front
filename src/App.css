@@ -332,7 +332,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 2rem 2rem;
+  margin: 2rem 1rem;
   min-width: 50%;
 }
 
@@ -352,7 +352,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3rem;
+  padding: 3rem 2rem;
   min-width: 40%;
 }
 
@@ -853,10 +853,59 @@ hr {
   font-size: 1rem;
   border-radius: 5px;
   margin-top: 1.5rem;
+  border: none;
 }
 
 .add-to-calendar-button:hover {
   background-color: rgb(140, 57, 212);
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: rgb(111, 45, 168);
+  padding: 20px;
+  width: 80%;
+  max-width: 400px; 
+  text-align: center;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-content p {
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-content button {
+  text-decoration: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 1rem;
+  border-radius: 5px;
+  margin: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 @media screen and (max-width: 1200px) {
@@ -960,14 +1009,11 @@ hr {
   .clip-link {
     width: 400px;
     margin: 2rem 0;
+    overflow: hidden;
   }
   
   .latest-clip {
     padding: 1rem 0;
-  }
-
-  .shows-link {
-    width: 400px;
   }
 
   .youtube-clip {
@@ -984,6 +1030,7 @@ hr {
   .shows-link {
     width: 400px;
     margin: 2rem;
+    overflow: hidden;
   }
 
   .info-grid {
@@ -1006,7 +1053,7 @@ hr {
   }
 
   .footer-right-container {
-    width: 30%;
+    width: 40%;
   }
 
   .footer-socials-container {
@@ -1123,7 +1170,8 @@ hr {
   }
 
   .member-section {
-    min-width: 400px;
+    min-width: 390px;
+    overflow: hidden;
   }
 
   .about-member-image {
@@ -1174,9 +1222,8 @@ hr {
     justify-content: center;
     align-items: center;
     max-width: 80%;
-    min-width: 375px;
+    min-width: 350px;
     min-height: 504px;
-    padding: 1rem;
     text-align: center;
     border: white solid 2px;
     padding: 1.5rem 0;
