@@ -108,6 +108,10 @@ nav {
   align-items: center;
 }
 
+.footer-socials-container {
+  width: 100%;
+}
+
 @keyframes slideIn {
   from {
     left: -60vw;
@@ -189,7 +193,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1rem;
+  padding: 2rem 1rem;
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow:0 8px 20px rgba(0, 0, 0, 0.6);
 }
@@ -217,6 +221,25 @@ footer {
 .social-icon:hover,
 .hamburger-social-icon:hover {
   color: white;
+}
+
+.footer-right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+}
+
+.credits {
+  color: white;
+  font-size: 0.5rem;
+  margin-top: 1rem;
+  text-decoration: none;
+}
+
+.credits:hover {
+  text-decoration: underline;
 }
 
 .contact-button {
@@ -479,6 +502,11 @@ hr {
   margin: 1rem 0;
 }
 
+hr {
+  width: 80%;
+  margin: 1rem 0;
+}
+
 .info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -580,6 +608,8 @@ hr {
   min-height: 504px;
   background-color: rgba(0, 0, 0, 0.4);
   padding: 2rem;
+  opacity: 0;
+  animation: fadeRight 1s ease-out forwards;
 }
 
 .band-promo-pic {
@@ -895,8 +925,8 @@ hr {
   }
   
   .member-image {
-    width: 200px;
-    height: 200px;
+    width: 175px;
+    height: 175px;
   }
 
   .quick-view-container {
@@ -906,7 +936,7 @@ hr {
   }
 
   .clip-link {
-    width: 475px;
+    width: 400px;
     margin: 2rem 0;
   }
   
@@ -915,34 +945,50 @@ hr {
   }
 
   .shows-link {
-    width: 450px;
+    width: 400px;
+  }
+
+  .youtube-clip {
+    width: 350px;
+    height: 250px;
+    border-radius: 25px;
+    box-shadow:0 8px 20px rgba(0, 0, 0, 0.6);
   }
 
   .next-show-image {
-    width: 140px;
+    width: 200px;
   }
   
   .shows-link {
-    width: 475px;
+    width: 400px;
     margin: 2rem;
   }
-   
+
   .info-grid {
-    grid-gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-left: 2rem;
+    grid-gap: 0;
   }
   
   .show-label {
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.3rem;
   }
 
   .show-data {
-    font-size: 0.8rem;
-    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+    margin-bottom: 0;
+  }
+
+  .footer-right-container {
+    width: 30%;
   }
 
   .footer-socials-container {
-    width: 30%;
+    width: 100%;
   }
 
   .contact-form {
@@ -951,6 +997,7 @@ hr {
 
   .contact-section {
     width: 90%;
+    margin-top: 0;
   }
 
   .cta-header {
@@ -961,9 +1008,18 @@ hr {
     font-size: 1.5rem;
   }
 
+  .shows-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
   .show-item {
     padding: 1rem;
-    min-width: 475px;
+    min-width: 400px;
   }
   
   .show-data-grid {
@@ -985,7 +1041,7 @@ hr {
 
   .page-title {
     font-size: 3rem;
-    margin: 7rem 0 2rem 0;
+    margin: 7rem 0 1rem 0;
     text-align: center;
   }
   
@@ -998,6 +1054,10 @@ hr {
 
   .show-data-title {
     margin-bottom: 0.2rem;
+  }
+
+  .show-data {
+    margin-bottom: 0.7rem;
   }
 
   .show-data-info {
@@ -1021,6 +1081,7 @@ hr {
 
   .song-details-grid {
     width: 100%;
+    grid-gap: 0;
   }
 
   .song-list-grid {
@@ -1037,6 +1098,84 @@ hr {
 
   .page-header {
     font-size: 3rem;
+  }
+
+  .member-section {
+    min-width: 400px;
+  }
+
+  .about-member-image {
+    max-width: 175px;
+    max-height: 60%;
+    height: auto;
+    align-self: auto;
+  }
+  
+  .member-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 0;
+    margin-left: 1rem;
+    max-height: 600px;
+    min-width: 200px;
+    overflow: auto;
+  }
+
+  hr {
+    margin: 0;
+  }
+
+  .member-name,
+  .member-role {
+    margin: 0 0 1rem 0;
+  }
+
+  .member-name {
+    font-size: 1.25rem;
+  }
+
+  .member-role {
+    font-size: 0.9rem;
+  }
+
+  .member-about {
+    font-size: 0.75rem;
+    line-height: 25px;
+    overflow: auto;
+  }
+
+  .band-about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    min-width: 375px;
+    min-height: 504px;
+    padding: 1rem;
+    text-align: center;
+    border: white solid 2px;
+    padding: 1.5rem 0;
+  }
+  
+  .band-promo-pic {
+    width: 225px;
+    height: 330px;
+  }
+  
+  .about-blurb {
+    letter-spacing: 0px;
+    line-height: 25px;
+    margin-left: 0;
+    border: none;
+    padding: 0;
+    max-height: 440px;
+    width: 90%;
+    padding-top: 2rem;
+    overflow: auto;
+    font-size: 0.9rem;
   }
   
 }

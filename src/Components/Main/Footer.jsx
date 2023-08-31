@@ -12,10 +12,13 @@ export default function Footer () {
             <footer>
                 <div className="footer-container">
                     <Link to='/contact' className="contact-button">Contact Us</Link>
-                    <div className="footer-socials-container">
-                        <a href="https://www.instagram.com/anighttoforgetband/?hl=en" className='social-icon'><FontAwesomeIcon icon={faInstagramSquare}/></a>
-                        <a href="https://www.facebook.com/ANightToForgetBand" className='social-icon'><FontAwesomeIcon icon={faFacebookSquare}/></a>
-                        <a href="https://www.youtube.com/@anighttoforget1810" className='social-icon'><FontAwesomeIcon icon={faYoutubeSquare}/></a>
+                    <div className="footer-right-container">
+                        <div className="footer-socials-container">
+                            <a href="https://www.instagram.com/anighttoforgetband/?hl=en" className='social-icon'><FontAwesomeIcon icon={faInstagramSquare}/></a>
+                            <a href="https://www.facebook.com/ANightToForgetBand" className='social-icon'><FontAwesomeIcon icon={faFacebookSquare}/></a>
+                            <a href="https://www.youtube.com/@anighttoforget1810" className='social-icon'><FontAwesomeIcon icon={faYoutubeSquare}/></a>
+                        </div>
+                        <a href="https://github.com/johnrbrooks" className="credits">Designed and built by John Brooks</a>
                     </div>
                 </div>
             </footer>
