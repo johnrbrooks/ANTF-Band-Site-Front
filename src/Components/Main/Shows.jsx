@@ -73,6 +73,24 @@ export default function Shows () {
         }
     }, [sortedShows])
 
+    function generateCalendarLink(show) {
+        const BASE_URL = 'https://www.google.com/calendar/render?action=TEMPLATE'
+    
+        const [startTime, endTime] = show.time.split(' - ')
+    
+        const startDate = moment(show.date + ' ' + startTime, "YYYY-MM-DD h:mmA").format('YYYYMMDDTHHmmss')
+        let endDate = moment(show.date + ' ' + endTime, "YYYY-MM-DD h:mmA").format('YYYYMMDDTHHmmss')
+    
+        // If the end time is earlier than the start time, it means the show ends the next day
+        if (moment(endDate).isBefore(moment(startDate))) {
+            endDate = moment(show.date + ' ' + endTime, "YYYY-MM-DD h:mmA").add(1, 'days').format('YYYYMMDDTHHmmss')
+        }
+    
+        const url = `${BASE_URL}&text=${encodeURIComponent(show.venue)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(show.cover)}&location=${encodeURIComponent(show.location)}&sf=true&output=xml`
+    
+        return url
+    }
+
     return sortedShows ? (
         <div>
             <div className="home-page">
@@ -95,6 +113,7 @@ export default function Shows () {
                                         <p className="show-data-info">{show.location}</p>
                                         <h3 className="show-data-title">Cover?</h3>
                                         <p className="show-data-info">{show.cover}</p>
+                                        <a href={generateCalendarLink(show)} target="_blank" rel="noopener noreferrer" className="add-to-calendar-button">Add to Calendar</a>
                                     </div>
                                 </div>
                             </div>

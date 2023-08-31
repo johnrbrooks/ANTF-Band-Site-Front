@@ -845,6 +845,19 @@ hr {
   margin-bottom: 1rem;
 }
 
+.add-to-calendar-button {
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  background-color: rgb(111, 45, 168);
+  font-size: 0.75rem;
+  border-radius: 5px;
+}
+
+.add-to-calendar-button:hover {
+  background-color: rgb(140, 57, 212);
+}
+
 @media screen and (max-width: 1200px) {
   .main {
     display: flex;
