@@ -5,13 +5,14 @@ import About from './Components/Main/About'
 import Shows from './Components/Main/Shows'
 import SongList from './Components/Main/SongList'
 import Contact from './Components/Main/Contact'
+import ScrollToTop from './Components/Utilities/ScrollToTop'
 
 export const BASE_URL = `https://antf-band-site-back-production.up.railway.app/api/`
 
 function App() {
-
   return (
     <div className='App'>
+      <ScrollToTop />
       <Routes>
         <Route exact path="/" element={<Home />}/>
         <Route exact path="/home" element={<Home />}/>
