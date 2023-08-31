@@ -797,7 +797,13 @@ hr {
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
-  animation: fadeRight 1s ease-out forwards;
+  transform: translateX(200px);
+  transition: opacity 1s, transform 1s;
+}
+
+.show-item.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .show-data-container {
@@ -1040,7 +1046,7 @@ hr {
   }
 
   .page-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin: 7rem 0 1rem 0;
     text-align: center;
   }
