@@ -848,10 +848,11 @@ hr {
 .add-to-calendar-button {
   text-decoration: none;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 2rem;
   background-color: rgb(111, 45, 168);
-  font-size: 0.75rem;
+  font-size: 1rem;
   border-radius: 5px;
+  margin-top: 1.5rem;
 }
 
 .add-to-calendar-button:hover {
@@ -1197,6 +1198,16 @@ hr {
     padding-top: 2rem;
     overflow: auto;
     font-size: 0.9rem;
+  }
+
+  .add-to-calendar-button {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    background-color: rgb(111, 45, 168);
+    font-size: 0.75rem;
+    border-radius: 5px;
+    margin-top: 1rem;
   }
   
 }

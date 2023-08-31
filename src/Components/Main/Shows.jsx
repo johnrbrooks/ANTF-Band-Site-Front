@@ -113,9 +113,9 @@ export default function Shows () {
                                         <p className="show-data-info">{show.location}</p>
                                         <h3 className="show-data-title">Cover?</h3>
                                         <p className="show-data-info">{show.cover}</p>
-                                        <a href={generateCalendarLink(show)} target="_blank" rel="noopener noreferrer" className="add-to-calendar-button">Add to Calendar</a>
                                     </div>
                                 </div>
+                                <a href={generateCalendarLink(show)} target="_blank" rel="noopener noreferrer" className="add-to-calendar-button">Add to Calendar</a>
                             </div>
                         ))}
                     </div>
