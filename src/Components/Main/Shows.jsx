@@ -81,7 +81,7 @@ export default function Shows () {
                     <h1 className='page-title'>Upcoming Shows</h1>
                     <hr />
                     <div className="shows-grid">
-                        {sortedShows.map((show, index) => (
+                        {sortedShows.map((show) => (
                             <div className="show-item" ref={showRefs.current[show._id]} key={show._id}>
                                 <h2 className="venue-name">{show.venue}</h2>
                                 <div className="show-data-container">

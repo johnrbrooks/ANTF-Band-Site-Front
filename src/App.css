@@ -796,7 +796,7 @@ hr {
   min-width: 600px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0;
+  opacity: 1;
   transform: translateX(200px);
   transition: opacity 1s, transform 1s;
 }
