@@ -20,6 +20,7 @@
     "dotenv": "^16.3.1",
     "email-js": "^2.0.2",
     "emailjs": "^4.0.2",
+    "hamburger-react": "^2.5.0",
     "moment": "^2.29.4",
     "nodemailer": "^6.9.4",
     "react": "^18.2.0",

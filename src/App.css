@@ -100,11 +100,86 @@ nav {
   transform: scaleX(1);
 }
 
-.socials-container {
+.socials-container,
+.footer-socials-container {
   width: 10%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+@keyframes slideIn {
+  from {
+    left: -60vw;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    left: 0;
+    opacity: 1;
+  }
+  to {
+    left: -60vw;
+    opacity: 0;
+  }
+}
+
+.hamburger-icon {
+  display: none;
+}
+
+.hamburger-menu {
+  position: fixed;
+  top: 0;
+  left: -50vw; 
+  width: 50vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 1);
+  overflow-y: auto;
+  z-index: 1000; 
+}
+
+.hamburger-menu.active {
+  animation: slideIn 0.3s forwards;
+}
+
+.hamburger-menu.inactive {
+  animation: slideOut 0.3s forwards;
+}
+
+.hamburger-nav-container {
+  padding: 20px;
+}
+
+.hamburger-nav-item {
+  display: block;
+  padding: 10px 0;
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hamburger-nav-item:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.hamburger-socials-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  background-color: rgba(0,0,0,0.1);
+}
+
+.hamburger-social-icon {
+  color: white;
+  font-size: 24px;
 }
 
 /* FOOTER */
@@ -133,12 +208,14 @@ footer {
   align-items: center;
 }
 
-.social-icon {
+.social-icon,
+.hamburger-social-icon {
   color: rgb(111, 45, 168);
   font-size: 2rem;
 }
 
-.social-icon:hover {
+.social-icon:hover,
+.hamburger-social-icon:hover {
   color: white;
 }
 
@@ -767,5 +844,199 @@ hr {
     padding: 3.25rem;
     max-height: 440px;
   }
+}
 
+@media screen and (max-width: 900px) {
+
+  body {
+    background-image: none;
+    background-color: rgb(0, 0, 0);
+    font-family: 'Rubik', sans-serif;
+  }
+
+  nav {
+    position: fixed;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+  }
+  
+  .nav-container {
+    display: none;
+  }
+
+  .socials-container {
+    display: none;
+  }
+
+  .hamburger-icon {
+    display: block;
+  }
+
+  .nav-logo {
+    width: 150px;
+  }
+
+  .main-logo {
+    width: 350px;
+    margin-top: 7rem;
+  }
+
+  .tagline {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 2.5rem 2rem;
+  }
+  
+  .members-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 2rem 0;
+  }
+  
+  .member-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .quick-view-container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .clip-link {
+    width: 475px;
+    margin: 2rem 0;
+  }
+  
+  .latest-clip {
+    padding: 1rem 0;
+  }
+
+  .shows-link {
+    width: 450px;
+  }
+
+  .next-show-image {
+    width: 140px;
+  }
+  
+  .shows-link {
+    width: 475px;
+    margin: 2rem;
+  }
+   
+  .info-grid {
+    grid-gap: 0.5rem;
+  }
+  
+  .show-label {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .show-data {
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-socials-container {
+    width: 30%;
+  }
+
+  .contact-form {
+    margin-top: 7rem;
+  }
+
+  .contact-section {
+    width: 90%;
+  }
+
+  .cta-header {
+    font-size: 1.75rem;
+  }
+
+  .cta-subheader {
+    font-size: 1.5rem;
+  }
+
+  .show-item {
+    padding: 1rem;
+    min-width: 475px;
+  }
+  
+  .show-data-grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 3rem;
+  }
+  
+  .show-poster {
+    width: 200px;
+    border-radius: 5px;
+  }
+  
+  .venue-name {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    margin: 7rem 0 2rem 0;
+    text-align: center;
+  }
+  
+  .venue-name,
+  .show-data-title,
+  .show-data-info {
+    color: white;
+    width: 100%;
+  }
+
+  .show-data-title {
+    margin-bottom: 0.2rem;
+  }
+
+  .show-data-info {
+    font-size: 0.75rem;
+    margin-bottom: 0.7rem;
+  }
+  
+  .page-container {
+    margin-top: 7rem;
+    margin-bottom: 3rem;
+  }
+
+  .search-container {
+    justify-content: center;
+  }
+
+  .search-bar {
+    padding-left: 8px;
+    margin: 2rem 0 0 0;
+  }
+
+  .song-details-grid {
+    width: 100%;
+  }
+
+  .song-list-grid {
+    width: 100%;
+  }
+
+  .song-name {
+    font-size: 1rem;
+  }
+
+  .song-artist {
+    font-size: 1rem;
+  }
+
+  .page-header {
+    font-size: 3rem;
+  }
+  
 }
