@@ -249,10 +249,11 @@ footer {
   border-radius: 15px;
   text-decoration: none;
   font-size: 1.5rem;
+  background-color: rgb(111, 45, 168);
 }
 
 .contact-button:hover {
-  background-color: rgba(111, 45, 168, 0.7);
+  background-color: rgb(140, 57, 212);
   box-shadow:0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
@@ -413,14 +414,14 @@ select {
   padding: 1rem 3rem;
   font-size: 1.25rem;
   border-radius: 15px;
-  border: solid 2px white;
+  border: none;
   color: white;
-  background-color:rgba(74, 30, 113, 0.1);
+  background-color:rgb(111, 45, 168);
 }
 
 .contact-submit-button:hover {
   cursor: pointer;
-  background-color: rgba(111, 45, 168, 0.7);
+  background-color: rgb(140, 57, 212);
   box-shadow:0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
@@ -697,6 +698,20 @@ hr {
 
 .page-container {
   flex: 1;
+}
+
+.spotify-player-title {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.spotify-player {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }
 
 .search-container {
@@ -1167,6 +1182,14 @@ hr {
 
   .page-header {
     font-size: 3rem;
+  }
+
+  .spotify-player-title {
+    text-align: center;
+  }
+
+  .spotify-player-embed {
+    width: 75%;
   }
 
   .member-section {

@@ -66,6 +66,20 @@ export default function SongList () {
                             </div>
                         ))}
                     </div>
+                    <div className="spotify-player">
+                        <hr className="table-break" />
+                        <h1 className="spotify-player-title">A Night To Forget's Spotify Playlist</h1>
+                        <iframe 
+                            style={{borderRadius: '12px'}} 
+                            src="https://open.spotify.com/embed/playlist/6324LNpdBVIEQaTybn1Itg?utm_source=generator" 
+                            width="30%" 
+                            height="650"
+                            className="spotify-player-embed" 
+                            frameBorder="0" 
+                            allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
                 </div>
                 <Footer />
             </div>

@@ -32,7 +32,12 @@ export default function Shows () {
 
     useEffect(() => {
         const sortShows = () => {
-            const sortedShowDates = shows.sort((a, b) => {
+            const today = new Date()
+            today.setHours(0, 0, 0, 0)
+
+            const sortedShowDates = shows
+            .filter(show => new Date(show.date) > today)
+            .sort((a, b) => {
                 const dateA = new Date(a.date)
                 const dateB = new Date(b.date)
     
