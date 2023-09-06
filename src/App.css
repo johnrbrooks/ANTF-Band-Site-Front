@@ -1040,6 +1040,11 @@ hr {
     box-shadow:0 8px 20px rgba(0, 0, 0, 0.6);
   }
 
+  .next-show {
+    padding: 2rem;
+    width: 380px;
+  }
+
   .next-show-image {
     width: 200px;
   }
