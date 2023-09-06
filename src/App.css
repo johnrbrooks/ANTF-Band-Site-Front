@@ -593,6 +593,7 @@ hr {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vw;
 }
 
 .page-title {
@@ -939,7 +940,7 @@ hr {
   }
 
   .about-members-grid {
-    width: 80%;
+    width: 80vw;
   }
 
   .band-about {
@@ -974,7 +975,7 @@ hr {
     position: fixed;
     z-index: 1000;
     background-color: rgba(0, 0, 0, 0.9);
-    width: 100%;
+    width: 100vw;
   }
   
   .nav-container {
@@ -1001,7 +1002,8 @@ hr {
   .tagline {
     font-size: 1.5rem;
     text-align: center;
-    margin: 2.5rem 2rem;
+    margin: 2.5rem 1rem;
+    max-width: 80vw;
   }
   
   .members-grid {
@@ -1018,11 +1020,11 @@ hr {
   .quick-view-container {
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 90%;
   }
 
   .clip-link {
-    width: 400px;
+    width: 380px;
     margin: 2rem 0;
     overflow: hidden;
   }
@@ -1043,7 +1045,7 @@ hr {
   }
   
   .shows-link {
-    width: 400px;
+    width: 380px;
     margin: 2rem;
     overflow: hidden;
   }
