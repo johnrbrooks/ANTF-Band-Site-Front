@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import './App.css'
 import Home from './Components/Main/HomePage/Home'
 import About from './Components/Main/About'
@@ -12,6 +12,7 @@ import AdminHome from './Components/Admin/AdminForms/AdminHome'
 export const BASE_URL = `https://antf-band-site-back-production.up.railway.app/api/`
 
 function App() {
+
   return (
     <div className='App'>
       <ScrollToTop />
@@ -22,9 +23,9 @@ function App() {
         <Route exact path="/shows" element={<Shows />}/>
         <Route exact path="/songs" element={<SongList />}/>
         <Route exact path="/contact" element={<Contact />}/>
+        <Route path="/*" element={<h1>404: Page Not Found</h1>}/>
         <Route exact path="/adminlogin" element={<AdminLogin />}/>
         <Route exact path="/adminhome" element={<AdminHome />}/>
-        <Route path="/*" element={<h1>404: Page Not Found</h1>}/>
       </Routes>
     </div>
   )
