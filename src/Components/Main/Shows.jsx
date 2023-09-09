@@ -36,7 +36,7 @@ export default function Shows () {
             today.setHours(0, 0, 0, 0)
 
             const sortedShowDates = shows
-            .filter(show => new Date(show.date) > today)
+            .filter(show => new Date(show.date) >= today)
             .sort((a, b) => {
                 const dateA = new Date(a.date)
                 const dateB = new Date(b.date)
