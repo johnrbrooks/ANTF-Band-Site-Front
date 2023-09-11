@@ -49,13 +49,13 @@ export default function NextShow () {
 
     useEffect(() => {
         const sortShows = () => {
-            const sortedShows = shows.sort((a, b) => {
-                const dateA = new Date(a.date)
-                const dateB = new Date(b.date)
-    
-                return dateA - dateB
-            })
-            setNextShow(sortedShows[0])
+            const today = moment().startOf('day');
+        
+            const sortedShowDates = shows
+            .filter(show => moment(show.date).isSameOrAfter(today))
+            .sort((a, b) => moment(a.date).diff(moment(b.date)))
+        
+            setNextShow(sortedShowDates[0]);
         }
         sortShows()
     }, [shows])
