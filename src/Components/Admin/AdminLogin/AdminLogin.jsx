@@ -22,17 +22,17 @@ export default function AdminLogin () {
     }
 
     const validateLogin = (email, password) => {
-        if(email === VITE_ADMIN_EMAIL && password === VITE_ADMIN_PW) {
+        if(email.toLowerCase() === VITE_ADMIN_EMAIL && password === VITE_ADMIN_PW) {
             setErrorMessage('')
             setLoggedIn(true)
-            navigate('/adminhome')
+            navigate('/adminhome', { state: { isLoggedIn: true } });
         } else {
             setErrorMessage('Incorrect Email or Password. Please try again.')
         }
     }
 
     return (
-        isLoggedIn ? <AdminHome /> : (
+        isLoggedIn ? <AdminHome isLoggedIn={isLoggedIn}/> : (
             <>
                 <div className="admin-login-page">
                     <h1 className="page-title">Admin Login</h1>
@@ -70,5 +70,6 @@ export default function AdminLogin () {
                     </div>
                 </div>
             </>
-            ))
-        }
+        )
+    )
+}
