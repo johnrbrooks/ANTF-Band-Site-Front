@@ -14,7 +14,7 @@
 }
 
 .form-select {
-    width: 400px;
+    width: 350px;
     height: fit-content;
     font-size: 1.5rem;
     text-align: center;
@@ -153,4 +153,10 @@
 .instructions {
     color: white;
     margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 900px) {
+    .form-select {
+        margin-top: 3rem;
+    }
 }
