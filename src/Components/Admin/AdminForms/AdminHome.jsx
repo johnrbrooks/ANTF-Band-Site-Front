@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import './AdminHome.css'
 import Nav from '../../Main/Nav'
+import Footer from '../../Main/Footer'
 import AdminLogin from '../AdminLogin/AdminLogin'
 import AddShowForm from './AddShowForm'
 import DeleteShowForm from './DeleteShowForm'
@@ -60,6 +61,7 @@ export default function AdminHome ({ isLoggedIn }) {
                 </select>
                 {renderedComponent}
             </div>
+            <Footer />
         </>
     )
 }

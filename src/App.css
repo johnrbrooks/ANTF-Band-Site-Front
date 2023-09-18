@@ -112,6 +112,18 @@ nav {
   width: 100%;
 }
 
+.admin-button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.admin-button:hover {
+  color: white;
+}
+
 @keyframes slideIn {
   from {
     left: -60vw;
@@ -997,6 +1009,10 @@ hr {
   .main-logo {
     width: 350px;
     margin-top: 7rem;
+  }
+
+  .admin-button {
+    display: none;
   }
 
   .tagline {

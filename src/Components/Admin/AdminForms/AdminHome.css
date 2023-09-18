@@ -1,3 +1,7 @@
+body {
+    background: black;
+}
+
 .admin-home-page-wrapper {
     background-color: black;
     width: 100%;
@@ -6,6 +10,10 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
+}
+
+.hamburger-admin-button:hover {
+    color: white;
 }
 
 .admin-home-title {
@@ -166,5 +174,10 @@
 @media screen and (max-width: 900px) {
     .form-select {
         margin-top: 3rem;
+    }
+
+    .admin-home-title {
+        margin-bottom: 0;
+        margin-top: 7rem;
     }
 }

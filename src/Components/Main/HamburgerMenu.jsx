@@ -23,6 +23,9 @@ export default function HamburgerMenu(props) {
                     <a href="https://www.facebook.com/ANightToForgetBand" className='hamburger-social-icon'><FontAwesomeIcon icon={faFacebookSquare}/></a>
                     <a href="https://www.youtube.com/@anighttoforget1810" className='hamburger-social-icon'><FontAwesomeIcon icon={faYoutubeSquare}/></a>
                 </div>
+                <div className="admin-button-wrapper">
+                    <Link to='/adminlogin' className="hamburger-admin-button">admin</Link>
+                </div>
             </div>
         </>
     )
