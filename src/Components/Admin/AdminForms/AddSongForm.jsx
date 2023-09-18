@@ -52,9 +52,9 @@ export default function AddSongForm () {
     return (
         <form className="song-form" action="" onSubmit={handleSubmit}>
             <label htmlFor="">Song Name:</label>
-            <input type="text" name="name" value={formData.name} className="data-input" placeholder="Song Name" onChange={handleChange}/>
+            <input type="text" name="name" value={formData.name} className="song-data-input" placeholder="Song Name" onChange={handleChange}/>
             <label htmlFor="">Song Artist:</label>
-            <input type="text" name="artist" value={formData.artist} className="data-input" placeholder="Song Artist"onChange={handleChange}/>
+            <input type="text" name="artist" value={formData.artist} className="song-data-input" placeholder="Song Artist"onChange={handleChange}/>
             {formError && <p className="form-error">{formError}</p>}
             {errorMessage && <p className="submission-error">{errorMessage}</p>}
             <button className="song-form-submit">Add</button>

@@ -12,6 +12,7 @@ export default function Footer () {
             <footer>
                 <div className="footer-container">
                     <Link to='/contact' className="contact-button">Contact Us</Link>
+                    <Link to='/adminlogin' className="admin-button">admin</Link>
                     <div className="footer-right-container">
                         <div className="footer-socials-container">
                             <a href="https://www.instagram.com/anighttoforgetband/?hl=en" className='social-icon'><FontAwesomeIcon icon={faInstagramSquare}/></a>

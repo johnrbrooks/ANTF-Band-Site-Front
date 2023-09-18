@@ -4,6 +4,7 @@ import './AdminHome.css'
 import Nav from '../../Main/Nav'
 import AdminLogin from '../AdminLogin/AdminLogin'
 import AddShowForm from './AddShowForm'
+import DeleteShowForm from './DeleteShowForm'
 import AddSongForm from './AddSongForm'
 import DeleteSongForm from './DeleteSongForm'
 
@@ -32,6 +33,9 @@ export default function AdminHome ({ isLoggedIn }) {
         case "AddShow":
             renderedComponent = <AddShowForm />;
             break;
+        case "DeleteShow":
+            renderedComponent = <DeleteShowForm />;
+            break;
         case "AddSong":
             renderedComponent = <AddSongForm />;
             break;
@@ -50,6 +54,7 @@ export default function AdminHome ({ isLoggedIn }) {
                 <select name="form-type" id="form-type" className="form-select" onChange={handleChange}>
                     <option value=""></option>
                     <option value="AddShow">Add Show</option>
+                    <option value="DeleteShow">Delete Show</option>
                     <option value="AddSong">Add Song</option>
                     <option value="DeleteSong">Delete Song</option>
                 </select>

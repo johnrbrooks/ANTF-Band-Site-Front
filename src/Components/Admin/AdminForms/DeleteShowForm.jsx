@@ -3,33 +3,33 @@ import axios from 'axios'
 import './AdminHome.css'
 import { BASE_URL } from '../../../App'
 
-export default function DeleteSongForm() {
+export default function DeleteShowForm() {
 
-    const [songs, setSongs] = useState([])
-    const [songSelection, setSongSelection] = useState('')
+    const [shows, setShows] = useState([])
+    const [showSelection, setShowSelection] = useState('')
     const [formError, setFormError] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
     const [successMessage, setSuccessMessage] = useState('')
     const [deleteModal, setDeleteModal] = useState(false)
 
     useEffect(() => {
-        retrieveSongs()
-    }, [songs])
+        retrieveShows()
+    }, [])
 
-    const retrieveSongs = async () => {
+    const retrieveShows = async () => {
         try {
-            const response = await axios.get(`${BASE_URL}/songs/get/all`)
+            const response = await axios.get(`${BASE_URL}/shows/get/all`)
             if(response.status === 200) {
-                setSongs(response.data)
+                setShows(response.data)
             } 
         } catch (error) {
-            console.error('There was an error retrieving the songs: ', error)
+            console.error('There was an error retrieving the shows: ', error)
         }
     }
 
     const handleChange = (e) => {
-        const selectedSong = e.target.value
-        setSongSelection(selectedSong)
+        const selectedShow = e.target.value
+        setShowSelection(selectedShow)
         setDeleteModal(false)
         setFormError('')
         setSuccessMessage('')
@@ -37,8 +37,8 @@ export default function DeleteSongForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(songSelection === '') {
-            setFormError('You did not select a song!')
+        if(showSelection === '') {
+            setFormError('You did not select a show!')
         } else {
             setDeleteModal(true)
         }
@@ -46,15 +46,15 @@ export default function DeleteSongForm() {
 
     const handleConfirm = async () => {
         try {
-            const response = await axios.delete(`${BASE_URL}songs/delete`, { data: { name: songSelection }})
+            const response = await axios.delete(`${BASE_URL}shows/delete/${showSelection}`)
             if(response.status === 200) {
                 setDeleteModal(false)
-                setSuccessMessage('Song deleted!')
-                setSongSelection('')
-                retrieveSongs()
+                setSuccessMessage('Show deleted!')
+                setShowSelection('')
+                retrieveShows()
             }
         } catch(error) {
-            console.error('There was an error deleting the song: ', error)
+            console.error('There was an error deleting the show: ', error)
         }
     }
 
@@ -65,11 +65,11 @@ export default function DeleteSongForm() {
     return (
         <>
             <form className="song-form" action="" onSubmit={handleSubmit}>
-                <label className="song-form-label" htmlFor="">Song Name:</label>
-                <select name="song" id="song" className="select-input" onChange={handleChange}>
+                <label className="song-form-label" htmlFor="">Show:</label>
+                <select name="show" id="show" className="select-input" onChange={handleChange}>
                     <option value=""></option>
-                    {songs?.map(song => (
-                        <option value={song.name} key={song._id}>{song.name}</option>
+                    {shows?.map(show => (
+                        <option value={show._id} key={show._id}>{show.venue} - {show.date}</option>
                     ))}
                 </select>
                 {formError && <p className="form-error">{formError}</p>}
@@ -78,7 +78,7 @@ export default function DeleteSongForm() {
                 {successMessage && <p className="success-message">{successMessage}</p>}
                 {deleteModal && 
                     <div className='confirm-delete-modal'>
-                        <h3 className='modal-prompt'>Are you sure you want to delete this song?</h3>
+                        <h3 className='modal-prompt'>Are you sure you want to delete this show?</h3>
                         <div className="buttons-wrapper">
                             <button className="confirm" onClick={handleConfirm}>OK</button>
                             <button className="decline" onClick={handleCancel}>Cancel</button>

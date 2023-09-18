@@ -39,6 +39,14 @@
     border-radius: 5px;
 }
 
+.song-data-input {
+    width: 250px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
 .song-form-submit {
     padding: 0.75rem 3rem;
     margin-top: 1rem;

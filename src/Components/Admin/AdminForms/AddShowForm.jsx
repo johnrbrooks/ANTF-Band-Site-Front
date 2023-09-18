@@ -1,6 +1,7 @@
 import './AdminHome.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { BASE_URL } from '../../../App'
 
 export default function AddShowForm () {
 
@@ -44,13 +45,25 @@ export default function AddShowForm () {
             setFormError('Your date is not correctly formatted.')
             return
         }
-
-        console.log('Submitting...')
+        addShow()
     }
 
     const isValidDate = (input) => {
         const regex = /^\d{4}-\d{2}-\d{2}$/
         return regex.test(input)
+    }
+
+    const addShow = async () => {
+        try {
+            const response = await axios.post(`${BASE_URL}shows/create`, formData)
+            if(response.status === 200) {
+                setSuccessMessage('The show has been added!')
+            } else {
+                setErrorMessage('There was an error creating the show.')
+            }
+        } catch (error) {
+            console.error('There was an error creating the show: ', error)
+        }
     }
 
     return (
