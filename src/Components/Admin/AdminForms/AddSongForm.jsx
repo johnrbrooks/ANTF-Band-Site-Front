@@ -30,8 +30,9 @@ export default function AddSongForm () {
         e.preventDefault()
         if(formData.name === '' || formData.artist === '') {
             setFormError('You have not input the data yet!')
+        } else {
+            addSong()
         }
-        addSong()
     }
 
     const addSong = async () => {
