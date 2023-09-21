@@ -43,16 +43,16 @@ export default function Home () {
                     <h2 className="tagline">pop punk cover band from NOVA playing your favorite songs from those angsty emo years</h2>
                     <div className="members-grid">
                         <Link to='/about'>
-                            <img className='member-image one' src="/images/tylerPic.jpeg" alt="" />
+                            <img className='member-image one' src="https://i.imgur.com/vE9GQJa.jpg" alt="" />
                         </Link>
                         <Link to='/about'>
-                            <img className='member-image two' src="/images/johnPic.jpeg" alt="" />
+                            <img className='member-image two' src="https://i.imgur.com/DQSJMnv.jpg" alt="" />
                         </Link>
                         <Link to='/about'>
-                            <img className='member-image three' src="/images/jasonPic.jpeg" alt="" />
+                            <img className='member-image three' src="https://i.imgur.com/DJ59Heg.jpg" alt="" />
                         </Link>
                         <Link to='/about'>
-                            <img className='member-image four' src="/images/jamesPic.jpeg" alt="" />
+                            <img className='member-image four' src="https://i.imgur.com/ge6EJcR.jpg" alt="" />
                         </Link>
                     </div>
                     <div className="quick-view-container">

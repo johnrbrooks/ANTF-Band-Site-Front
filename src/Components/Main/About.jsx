@@ -9,7 +9,7 @@ export default function About () {
         {
             name: 'Tyler Schafer',
             role: 'Lead Vocals, Guitar, Air/Chest Drums',
-            image: '/images/TylerGoofy.jpg',
+            image: 'https://i.imgur.com/X6vCdOE.jpg',
             description: `Tyler’s a JMU grad, percussionist, audio engineer, mix engineer, producer, and aspiring
             Kermit the Frog impersonator. He went so hard during Black Parade that he chipped a tooth
             on the mic and he sweats from his knees. It was never a phase.`,
@@ -17,7 +17,7 @@ export default function About () {
         {
             name: `John Brooks`,
             role: `Lead Guitar, Setlists, Windowsill Whiskey Sours`,
-            image: `/images/JohnGoofy.jpg`,
+            image: `https://i.imgur.com/MjlAIVl.jpg`,
             description: `John’s a JMU grad, audio engineer, mix engineer, producer, hockey player, and learning to
             code like every other millennial dude. He specializes in nailing solos at home and then getting
             flustered on stage when Tyler says his name the measure before.`,
@@ -25,7 +25,7 @@ export default function About () {
         {
             name: `Jason Eller`,
             role: `Bass, Backing Vocals, IEM Rig`,
-            image: `/images/JasonGoofy.jpg`,
+            image: `https://i.imgur.com/5ToIOxb.jpg`,
             description: `Jason’s a VT grad, a normal 9-5 kind of engineer, and just bought a house (what a sell out).
             He’s been playing bass and nailing the echos on Stacy’s Mom since high school, but he’s still
             got a deer-in-headlights look on stage. Buy him whatever pilsner’s on tap so he can chill a bit.`,
@@ -33,7 +33,7 @@ export default function About () {
         {
             name: `James Rocket (Adelsberger)`,
             role: `Drums, Band Morale, Blisters`,
-            image: `/images/jamesPic.jpeg`,
+            image: `https://i.imgur.com/ge6EJcR.jpg`,
             description: `James usually spends his time playing drums or guitar with one of his
             273 side projects (only a mild exaggeration). He was the mastermind behind the half-time
             breakdown in The Middle. You’re welcome for the spiciness.`,
@@ -75,7 +75,7 @@ export default function About () {
                 <div className="about-content-container">
                     <h1 className='page-title'>About</h1>
                     <div className="band-about">
-                        <img className='band-promo-pic' src="/images/bandPromoPic.JPG" alt="" />
+                        <img className='band-promo-pic' src="https://i.imgur.com/bqc1gDl.jpg" alt="" />
                         <p className='about-blurb'>
                         A Night To Forget plays all your favorite angsty songs from grade school,
                         high school, or college (depending on the extent to which you're an elder emo)
