@@ -12,7 +12,7 @@
 }
 
 body {
-  background-image: url('/images/bandPic.jpeg');
+  background-image: url('https://i.imgur.com/sPVenk7.jpg');
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -709,6 +709,12 @@ hr {
   flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
+  background-image: url('https://i.imgur.com/sPVenk7.jpg');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-color: rgb(52, 52, 52);
+  background-blend-mode: multiply;
 }
 
 .page-container {
