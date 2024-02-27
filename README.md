@@ -12,6 +12,7 @@
 2. Utilize the Contact page to send an email to the band for requests or other inquiries
 3. Find any of the band's social media pages utilizing the links in the header or footer
 4. Band members can access the admin panel in order to create, update, or delete show and song data
+5. Add shows to your google calendar through use of the Shows page!
 
 ## Technologies Used
 
