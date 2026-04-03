@@ -1,10 +1,9 @@
-import { useState, useEffect, useContext, useRef, createRef } from "react";
-import { Link } from "react-router-dom";
-import { BASE_URL } from "../../App";
-import axios from "axios";
-import moment from "moment";
-import Nav from "./Nav";
-import Footer from "./Footer";
+import { useState, useEffect, useRef, createRef } from 'react';
+import { BASE_URL } from '../../../config';
+import axios from 'axios';
+import moment from 'moment';
+import Nav from './Nav';
+import Footer from './Footer';
 
 export default function Shows() {
     const [shows, setShows] = useState([]);
@@ -23,7 +22,7 @@ export default function Shows() {
                     setShows(response.data);
                 }
             } catch (error) {
-                console.error("Error gettings shows: ", error);
+                console.error('Error gettings shows: ', error);
             }
         };
         getShows();
@@ -31,7 +30,7 @@ export default function Shows() {
 
     useEffect(() => {
         const sortShows = () => {
-            const today = moment().startOf("day");
+            const today = moment().startOf('day');
 
             const sortedShowDates = shows
                 .filter((show) => moment(show.date).isSameOrAfter(today))
@@ -53,9 +52,9 @@ export default function Shows() {
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
+                        entry.target.classList.add('visible');
                     } else {
-                        entry.target.classList.remove("visible");
+                        entry.target.classList.remove('visible');
                     }
                 });
             },
@@ -79,24 +78,24 @@ export default function Shows() {
 
     function generateCalendarLink(show) {
         const BASE_URL =
-            "https://www.google.com/calendar/render?action=TEMPLATE";
+            'https://www.google.com/calendar/render?action=TEMPLATE';
 
-        const [startTime, endTime] = show.time.split(" - ");
+        const [startTime, endTime] = show.time.split(' - ');
 
         const startDate = moment(
-            show.date + " " + startTime,
-            "YYYY-MM-DD h:mmA",
-        ).format("YYYYMMDDTHHmmss");
+            show.date + ' ' + startTime,
+            'YYYY-MM-DD h:mmA',
+        ).format('YYYYMMDDTHHmmss');
         let endDate = moment(
-            show.date + " " + endTime,
-            "YYYY-MM-DD h:mmA",
-        ).format("YYYYMMDDTHHmmss");
+            show.date + ' ' + endTime,
+            'YYYY-MM-DD h:mmA',
+        ).format('YYYYMMDDTHHmmss');
 
         // If the end time is earlier than the start time, it means the show ends the next day
         if (moment(endDate).isBefore(moment(startDate))) {
-            endDate = moment(show.date + " " + endTime, "YYYY-MM-DD h:mmA")
-                .add(1, "days")
-                .format("YYYYMMDDTHHmmss");
+            endDate = moment(show.date + ' ' + endTime, 'YYYY-MM-DD h:mmA')
+                .add(1, 'days')
+                .format('YYYYMMDDTHHmmss');
         }
 
         const url = `${BASE_URL}&text=${encodeURIComponent(show.venue)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(show.cover)}&location=${encodeURIComponent(show.location)}&sf=true&output=xml`;
@@ -111,7 +110,7 @@ export default function Shows() {
 
     function confirmAddToCalendar() {
         if (selectedCalendarLink) {
-            window.open(selectedCalendarLink, "_blank");
+            window.open(selectedCalendarLink, '_blank');
         }
         setModalOpen(false);
     }
@@ -143,7 +142,7 @@ export default function Shows() {
                                         </h3>
                                         <p className="show-data-info">
                                             {moment(show.date).format(
-                                                "MMM Do, YYYY",
+                                                'MMM Do, YYYY',
                                             )}
                                         </p>
                                         <h3 className="show-data-title">

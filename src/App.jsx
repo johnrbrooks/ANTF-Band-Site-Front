@@ -1,16 +1,13 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
-import "./App.css";
-import Home from "./Components/Main/HomePage/Home";
-import About from "./Components/Main/About";
-import Shows from "./Components/Main/Shows";
-import SongList from "./Components/Main/SongList";
-import Contact from "./Components/Main/Contact";
-import ScrollToTop from "./Components/Utilities/ScrollToTop";
-import AdminLogin from "./Components/Admin/AdminLogin/AdminLogin";
-import AdminHome from "./Components/Admin/AdminForms/AdminHome";
-// import BASE_URL from "../config.js";
-
-export const BASE_URL = `https://antf-band-site-back-production.up.railway.app/api/`;
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import Home from './Components/Main/HomePage/Home';
+import About from './Components/Main/About';
+import Shows from './Components/Main/Shows';
+import SongList from './Components/Main/SongList';
+import Contact from './Components/Main/Contact';
+import ScrollToTop from './Components/Utilities/ScrollToTop';
+import AdminLogin from './Components/Admin/AdminLogin/AdminLogin';
+import AdminHome from './Components/Admin/AdminForms/AdminHome';
 
 function App() {
     return (
