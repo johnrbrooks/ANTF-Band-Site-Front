@@ -1,56 +1,65 @@
-import { useState, useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { BASE_URL } from '../../App'
-import axios from 'axios'
-import Nav from './Nav'
-import Footer from './Footer'
+import { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { BASE_URL } from '../../../config';
+import axios from 'axios';
+import Nav from './Nav';
+import Footer from './Footer';
 
-export default function SongList () {
-
-    const [songs, setSongs] = useState([])
-    const [searchQuery, setSearchQuery] = useState('')
-    const [searchResults, setSearchResults] = useState([])
+export default function SongList() {
+    const [songs, setSongs] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
 
     useEffect(() => {
-        const getSongs = async() => {
+        const getSongs = async () => {
             try {
-                const response = await axios.get(`${BASE_URL}songs/get/all`)
+                const response = await axios.get(`${BASE_URL}songs/get/all`);
                 if (response) {
-                    setSongs(response.data)
+                    setSongs(response.data);
                 }
             } catch (error) {
-                console.error('Error fetching songs:', error)
+                console.error('Error fetching songs:', error);
             }
-        }
-        getSongs()
-    }, [])
+        };
+        getSongs();
+    }, []);
 
     const handleChange = (e) => {
-        setSearchQuery(e.target.value)
-    }
+        setSearchQuery(e.target.value);
+    };
 
     useEffect(() => {
         const updateSearchResults = () => {
-            if(searchQuery === '') {
-                setSearchResults(songs)
+            if (searchQuery === '') {
+                setSearchResults(songs);
             } else {
                 const filteredResults = songs.filter(
-                    (result) => result.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                    result.artist.toLowerCase().includes(searchQuery.toLowerCase())
-                )
-                setSearchResults(filteredResults)
+                    (result) =>
+                        result.name
+                            .toLowerCase()
+                            .includes(searchQuery.toLowerCase()) ||
+                        result.artist
+                            .toLowerCase()
+                            .includes(searchQuery.toLowerCase()),
+                );
+                setSearchResults(filteredResults);
             }
-        }
-        updateSearchResults()
-    }, [searchQuery, songs])
-    
+        };
+        updateSearchResults();
+    }, [searchQuery, songs]);
+
     return searchResults ? (
         <div>
             <div className="home-page">
                 <Nav />
                 <div className="page-container">
                     <div className="search-container">
-                        <input type="search" placeholder="Search songs" className="search-bar" onChange = {handleChange}/>
+                        <input
+                            type="search"
+                            placeholder="Search songs"
+                            className="search-bar"
+                            onChange={handleChange}
+                        />
                     </div>
                     <div className="song-list-container">
                         <h1 className="page-header">Song List</h1>
@@ -68,17 +77,19 @@ export default function SongList () {
                     </div>
                     <div className="spotify-player">
                         <hr className="table-break" />
-                        <h1 className="spotify-player-title">A Night To Forget's Spotify Playlist</h1>
-                        <iframe 
-                            style={{borderRadius: '12px'}} 
-                            src="https://open.spotify.com/embed/playlist/6324LNpdBVIEQaTybn1Itg?utm_source=generator" 
-                            width="30%" 
+                        <h1 className="spotify-player-title">
+                            A Night To Forget's Spotify Playlist
+                        </h1>
+                        <iframe
+                            style={{ borderRadius: '12px' }}
+                            src="https://open.spotify.com/embed/playlist/6324LNpdBVIEQaTybn1Itg?utm_source=generator"
+                            width="30%"
                             height="650"
-                            className="spotify-player-embed" 
-                            frameBorder="0" 
-                            allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                            loading="lazy">
-                        </iframe>
+                            className="spotify-player-embed"
+                            frameBorder="0"
+                            allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"
+                        ></iframe>
                     </div>
                 </div>
                 <Footer />
@@ -86,5 +97,5 @@ export default function SongList () {
         </div>
     ) : (
         <h1>Loading...</h1>
-    )
+    );
 }
