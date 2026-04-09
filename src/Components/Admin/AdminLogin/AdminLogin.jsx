@@ -25,7 +25,7 @@ export default function AdminLogin() {
                     navigate('/adminhome');
                 }
             } catch (error) {
-                console.error('There was an error checking auth: ', error);
+                console.log(error);
             }
         };
 

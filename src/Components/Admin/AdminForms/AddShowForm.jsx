@@ -1,27 +1,27 @@
-import "./AdminHome.css";
-import { useState } from "react";
-import axios from "axios";
-import { BASE_URL } from "../../../../config";
+import './AdminHome.css';
+import { useState } from 'react';
+import axios from 'axios';
+import { BASE_URL } from '../../../../config';
 
 export default function AddShowForm() {
     const initialState = {
-        venue: "",
-        show_poster: "",
-        location: "",
-        date: "",
-        time: "",
-        cover: "",
+        venue: '',
+        show_poster: '',
+        location: '',
+        date: '',
+        time: '',
+        cover: '',
     };
 
     const [formData, setFormData] = useState(initialState);
-    const [successMessage, setSuccessMessage] = useState("");
-    const [formError, setFormError] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState('');
+    const [formError, setFormError] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleChange = (e) => {
-        setErrorMessage("");
-        setSuccessMessage("");
-        setFormError("");
+        setErrorMessage('');
+        setSuccessMessage('');
+        setFormError('');
         const { name, value } = e.target;
         setFormData((prevFormData) => ({
             ...prevFormData,
@@ -32,16 +32,16 @@ export default function AddShowForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!Object.values(formData).every((value) => value !== "")) {
-            setFormError("You have not filled in all the fields.");
+        if (!Object.values(formData).every((value) => value !== '')) {
+            setFormError('You have not filled in all the fields.');
             return;
         }
-        if (!formData.show_poster.includes("i.imgur")) {
-            setFormError("Your poster link will not work.");
+        if (!formData.show_poster.includes('i.imgur')) {
+            setFormError('Your poster link will not work.');
             return;
         }
         if (!isValidDate(formData.date)) {
-            setFormError("Your date is not correctly formatted.");
+            setFormError('Your date is not correctly formatted.');
             return;
         }
         addShow();
@@ -59,13 +59,13 @@ export default function AddShowForm() {
                 formData,
                 { withCredentials: true },
             );
-            if (response.status === 200) {
-                setSuccessMessage("The show has been added!");
+            if (response.status === 201) {
+                setSuccessMessage('The show has been added!');
             } else {
-                setErrorMessage("There was an error creating the show.");
+                setErrorMessage('There was an error creating the show.');
             }
         } catch (error) {
-            console.error("There was an error creating the show: ", error);
+            console.error('There was an error creating the show: ', error);
         }
     };
 
@@ -79,7 +79,7 @@ export default function AddShowForm() {
                 </p>
                 <ol className="image-instructions">
                     <li className="instructions">
-                        To create an image link, go to{" "}
+                        To create an image link, go to{' '}
                         <a href="https://imgur.com/"> Imgur.com </a>and sign in
                         using Google and the band&apos;s email.
                     </li>

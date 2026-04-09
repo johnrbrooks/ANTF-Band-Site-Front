@@ -26,7 +26,7 @@ export default function AdminHome() {
                     navigate('/adminhome');
                 }
             } catch (error) {
-                console.log(error);
+                navigate('/adminlogin');
             }
         };
 
