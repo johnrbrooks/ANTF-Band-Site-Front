@@ -57,8 +57,9 @@ export default function AddShowForm() {
             const response = await axios.post(
                 `${BASE_URL}shows/create`,
                 formData,
+                { withCredentials: true },
             );
-            if (response.status === 200) {
+            if (response.status === 201) {
                 setSuccessMessage('The show has been added!');
             } else {
                 setErrorMessage('There was an error creating the show.');
