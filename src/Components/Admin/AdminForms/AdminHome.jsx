@@ -1,45 +1,37 @@
-import { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import "./AdminHome.css";
-import Nav from "../../Main/Nav";
-import Footer from "../../Main/Footer";
-import AdminLogin from "../AdminLogin/AdminLogin";
-import AddShowForm from "./AddShowForm";
-import DeleteShowForm from "./DeleteShowForm";
-import AddSongForm from "./AddSongForm";
-import DeleteSongForm from "./DeleteSongForm";
-import AdminLogOut from "../AdminLogOut/adminLogOut";
-import axios from "axios";
-import { BASE_URL } from "../../../../config.js";
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './AdminHome.css';
+import Nav from '../../Main/Nav';
+import Footer from '../../Main/Footer';
+import AddShowForm from './AddShowForm';
+import DeleteShowForm from './DeleteShowForm';
+import AddSongForm from './AddSongForm';
+import DeleteSongForm from './DeleteSongForm';
+import AdminLogOut from '../AdminLogOut/AdminLogOut';
+import axios from 'axios';
+import { BASE_URL } from '../../../../config.js';
 
-export default function AdminHome({ isLoggedIn }) {
-    const [formType, setFormType] = useState("");
-
-    // TODO - implement checkAuth across /adminhome
+export default function AdminHome() {
+    const [formType, setFormType] = useState('');
 
     const navigate = useNavigate();
 
-    const location = useLocation();
-    const loggedIn = location.state?.isLoggedIn || false;
-
     useEffect(() => {
         const checkAuth = async () => {
-            const auth = await axios.get(`${BASE_URL}getCurrentAdmin`, {
-                withCredentials: true,
-            });
-            if (!auth) {
-                navigate("/adminlogin");
+            try {
+                const auth = await axios.get(`${BASE_URL}admin/checkAuth`, {
+                    withCredentials: true,
+                });
+                if (auth.status === 200) {
+                    navigate('/adminhome');
+                }
+            } catch (error) {
+                console.log(error);
             }
         };
 
         checkAuth();
-    }, []);
-
-    // useEffect(() => {
-    //     if (!loggedIn) {
-    //         navigate("/adminlogin");
-    //     }
-    // }, [loggedIn, navigate]);
+    }, [navigate]);
 
     const handleChange = (e) => {
         const value = e.target.value;
@@ -48,16 +40,16 @@ export default function AdminHome({ isLoggedIn }) {
 
     let renderedComponent;
     switch (formType) {
-        case "AddShow":
+        case 'AddShow':
             renderedComponent = <AddShowForm />;
             break;
-        case "DeleteShow":
+        case 'DeleteShow':
             renderedComponent = <DeleteShowForm />;
             break;
-        case "AddSong":
+        case 'AddSong':
             renderedComponent = <AddSongForm />;
             break;
-        case "DeleteSong":
+        case 'DeleteSong':
             renderedComponent = <DeleteSongForm />;
             break;
         default:

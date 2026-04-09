@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import antfLogo from "/images/ANTF_logo_black text w purple.png";
-import "./AdminLogin.css";
-import AdminHome from "../AdminForms/AdminHome";
-import axios from "axios";
-import { BASE_URL } from "../../../../config.js";
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import antfLogo from '/images/ANTF_logo_black text w purple.png';
+import './AdminLogin.css';
+import axios from 'axios';
+import { BASE_URL } from '../../../../config.js';
 
 export default function AdminLogin() {
     const navigate = useNavigate();
@@ -12,32 +11,29 @@ export default function AdminLogin() {
     // TODO - Login page should navigate to /adminhome if valid token from checkAuth - not working currently
     // TODO - Clean Up old auth functionality
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [isLoggedIn, setLoggedIn] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
-
-    const VITE_ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL;
-    const VITE_ADMIN_PW = import.meta.env.VITE_ADMIN_PW;
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         const checkAuth = async () => {
-            const auth = await axios.get(`${BASE_URL}getCurrentAdmin`, {
-                withCredentials: true,
-            });
-            if (!auth) {
-                navigate("/adminlogin");
+            try {
+                const auth = await axios.get(`${BASE_URL}admin/checkAuth`, {
+                    withCredentials: true,
+                });
+                if (auth.status === 200) {
+                    navigate('/adminhome');
+                }
+            } catch (error) {
+                console.error('There was an error checking auth: ', error);
             }
-
-            navigate("/adminhome");
         };
 
         checkAuth();
-    }, []);
+    }, [navigate]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // validateLogin(email, password);
         handleLogin(email, password);
     };
 
@@ -56,29 +52,16 @@ export default function AdminLogin() {
                 { withCredentials: true },
             );
             if (response.status === 200) {
-                setErrorMessage("");
-                navigate("/adminhome");
+                setErrorMessage('');
+                navigate('/adminhome');
             } else {
                 setErrorMessage(
-                    "Incorrect Email or Password. Please try again.",
+                    'Incorrect Email or Password. Please try again.',
                 );
             }
         } catch (error) {
-            console.error("Error during admin login: ", error);
-            setErrorMessage("Incorrect Email or Password. Please try again.");
-        }
-    };
-
-    const validateLogin = (email, password) => {
-        if (
-            email.toLowerCase() === VITE_ADMIN_EMAIL &&
-            password === VITE_ADMIN_PW
-        ) {
-            setErrorMessage("");
-            setLoggedIn(true);
-            navigate("/adminhome", { state: { isLoggedIn: true } });
-        } else {
-            setErrorMessage("Incorrect Email or Password. Please try again.");
+            console.error('Error during admin login: ', error);
+            setErrorMessage('Incorrect Email or Password. Please try again.');
         }
     };
 
@@ -103,7 +86,7 @@ export default function AdminLogin() {
                                 value={email}
                                 onChange={(e) => {
                                     setEmail(e.target.value);
-                                    setErrorMessage("");
+                                    setErrorMessage('');
                                 }}
                                 placeholder="Email"
                                 className="email-input"
@@ -121,7 +104,7 @@ export default function AdminLogin() {
                                 value={password}
                                 onChange={(e) => {
                                     setPassword(e.target.value);
-                                    setErrorMessage("");
+                                    setErrorMessage('');
                                 }}
                                 placeholder="Password"
                                 className="password-input"
