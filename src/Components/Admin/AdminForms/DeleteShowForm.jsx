@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import './AdminHome.css';
-import { BASE_URL } from '../../../../config';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import "./AdminHome.css";
+import { BASE_URL } from "../../../../config";
 
 export default function DeleteShowForm() {
     const [shows, setShows] = useState([]);
-    const [showSelection, setShowSelection] = useState('');
-    const [formError, setFormError] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
-    const [successMessage, setSuccessMessage] = useState('');
+    const [showSelection, setShowSelection] = useState("");
+    const [formError, setFormError] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
     const [deleteModal, setDeleteModal] = useState(false);
 
     useEffect(() => {
@@ -17,12 +17,14 @@ export default function DeleteShowForm() {
 
     const retrieveShows = async () => {
         try {
-            const response = await axios.get(`${BASE_URL}/shows/get/all`);
+            const response = await axios.get(`${BASE_URL}/shows/get/all`, {
+                withCredentials: true,
+            });
             if (response.status === 200) {
                 setShows(response.data);
             }
         } catch (error) {
-            console.error('There was an error retrieving the shows: ', error);
+            console.error("There was an error retrieving the shows: ", error);
         }
     };
 
@@ -30,14 +32,14 @@ export default function DeleteShowForm() {
         const selectedShow = e.target.value;
         setShowSelection(selectedShow);
         setDeleteModal(false);
-        setFormError('');
-        setSuccessMessage('');
+        setFormError("");
+        setSuccessMessage("");
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (showSelection === '') {
-            setFormError('You did not select a show!');
+        if (showSelection === "") {
+            setFormError("You did not select a show!");
         } else {
             setDeleteModal(true);
         }
@@ -47,15 +49,16 @@ export default function DeleteShowForm() {
         try {
             const response = await axios.delete(
                 `${BASE_URL}shows/delete/${showSelection}`,
+                { withCredentials: true },
             );
             if (response.status === 200) {
                 setDeleteModal(false);
-                setSuccessMessage('Show deleted!');
-                setShowSelection('');
+                setSuccessMessage("Show deleted!");
+                setShowSelection("");
                 retrieveShows();
             }
         } catch (error) {
-            console.error('There was an error deleting the show: ', error);
+            console.error("There was an error deleting the show: ", error);
         }
     };
 
