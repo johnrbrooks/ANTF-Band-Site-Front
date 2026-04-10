@@ -8,6 +8,9 @@ import DeleteShowForm from './DeleteShowForm';
 import AddSongForm from './AddSongForm';
 import DeleteSongForm from './DeleteSongForm';
 import AdminLogOut from '../AdminLogOut/AdminLogOut';
+import AddVenueForm from './AddVenueForm.jsx';
+import UpdateVenueForm from './UpdateVenueForm.jsx';
+import DeleteVenueForm from './DeleteVenueForm.jsx';
 import axios from 'axios';
 import { BASE_URL } from '../../../../config.js';
 
@@ -52,6 +55,15 @@ export default function AdminHome() {
         case 'DeleteSong':
             renderedComponent = <DeleteSongForm />;
             break;
+        case 'AddVenue':
+            renderedComponent = <AddVenueForm />;
+            break;
+        case 'UpdateVenue':
+            renderedComponent = <UpdateVenueForm />;
+            break;
+        case 'DeleteVenue':
+            renderedComponent = <DeleteVenueForm />;
+            break;
         default:
             renderedComponent = null;
     }
@@ -73,6 +85,9 @@ export default function AdminHome() {
                     <option value="DeleteShow">Delete Show</option>
                     <option value="AddSong">Add Song</option>
                     <option value="DeleteSong">Delete Song</option>
+                    <option value="AddVenue">Add Venue</option>
+                    <option value="UpdateVenue">Update Venue</option>
+                    <option value="DeleteVenue">Delete Venue</option>
                 </select>
                 {renderedComponent}
             </div>

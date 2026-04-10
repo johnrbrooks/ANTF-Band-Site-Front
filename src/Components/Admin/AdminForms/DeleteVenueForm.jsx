@@ -1,27 +1,27 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../../../../config.js';
 import './AdminHome.css';
-import { BASE_URL } from '../../../../config';
 
-export default function DeleteShowForm() {
-    const [shows, setShows] = useState([]);
-    const [showSelection, setShowSelection] = useState('');
+export default function DeleteVenueForm() {
+    const [venues, setVenues] = useState([]);
+    const [venueSelection, setVenueSelection] = useState('');
     const [formError, setFormError] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [deleteModal, setDeleteModal] = useState(false);
 
     useEffect(() => {
-        retrieveShows();
+        retrieveVenues();
     }, []);
 
-    const retrieveShows = async () => {
+    const retrieveVenues = async () => {
         try {
-            const response = await axios.get(`${BASE_URL}shows/get/all`, {
+            const response = await axios.get(`${BASE_URL}venues/get/all`, {
                 withCredentials: true,
             });
             if (response.status === 200) {
-                setShows(response.data);
+                setVenues(response.data);
             }
         } catch (error) {
             console.error('There was an error retrieving the shows: ', error);
@@ -29,8 +29,8 @@ export default function DeleteShowForm() {
     };
 
     const handleChange = (e) => {
-        const selectedShow = e.target.value;
-        setShowSelection(selectedShow);
+        const selectedVenue = e.target.value;
+        setVenueSelection(selectedVenue);
         setDeleteModal(false);
         setFormError('');
         setSuccessMessage('');
@@ -38,8 +38,8 @@ export default function DeleteShowForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (showSelection === '') {
-            setFormError('You did not select a show!');
+        if (venueSelection === '') {
+            setFormError('You did not select a venue!');
         } else {
             setDeleteModal(true);
         }
@@ -48,40 +48,39 @@ export default function DeleteShowForm() {
     const handleConfirm = async () => {
         try {
             const response = await axios.delete(
-                `${BASE_URL}shows/delete/${showSelection}`,
+                `${BASE_URL}venues/delete/${venueSelection}`,
                 { withCredentials: true },
             );
-            if (response.status === 200) {
+            if (response.status === 202) {
                 setDeleteModal(false);
-                setSuccessMessage('Show deleted!');
-                setShowSelection('');
-                retrieveShows();
+                setSuccessMessage('Venue deleted!');
+                setVenueSelection('');
+                retrieveVenues();
             }
         } catch (error) {
-            console.error('There was an error deleting the show: ', error);
+            console.error('There was an error deleting the venue: ', error);
         }
     };
 
     const handleCancel = () => {
         setDeleteModal(false);
     };
-
     return (
         <>
             <form className="song-form" action="" onSubmit={handleSubmit}>
                 <label className="song-form-label" htmlFor="">
-                    Show:
+                    Venue:
                 </label>
                 <select
-                    name="show"
-                    id="show"
+                    name="venue"
+                    id="venue"
                     className="select-input"
                     onChange={handleChange}
                 >
                     <option value=""></option>
-                    {shows?.map((show) => (
-                        <option value={show._id} key={show._id}>
-                            {show.venue} - {show.date}
+                    {venues?.map((venue) => (
+                        <option value={venue._id} key={venue._id}>
+                            {venue.name}
                         </option>
                     ))}
                 </select>
@@ -96,7 +95,7 @@ export default function DeleteShowForm() {
                 {deleteModal && (
                     <div className="confirm-delete-modal">
                         <h3 className="modal-prompt">
-                            Are you sure you want to delete this show?
+                            Are you sure you want to delete this venue?
                         </h3>
                         <div className="buttons-wrapper">
                             <button className="confirm" onClick={handleConfirm}>
