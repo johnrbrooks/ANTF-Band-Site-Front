@@ -1,22 +1,45 @@
 import './AdminHome.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../../../../config';
 
-export default function AddShowForm() {
-    const initialState = {
-        venue: '',
-        show_poster: '',
-        location: '',
-        date: '',
-        time: '',
-        cover: '',
-    };
+const intitialState = {
+    venue: '',
+    date: '',
+};
 
-    const [formData, setFormData] = useState(initialState);
+export default function AddShowForm() {
+    const [formData, setFormData] = useState(intitialState);
     const [successMessage, setSuccessMessage] = useState('');
     const [formError, setFormError] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+
+    const [venues, setVenues] = useState(null);
+
+    useEffect(() => {
+        if (!venues) {
+            getVenues();
+        }
+    });
+
+    const getVenues = async () => {
+        try {
+            const response = await axios.get(`${BASE_URL}venues/get/all`, {
+                withCredentials: true,
+            });
+
+            if (response.status === 200) {
+                setVenues(response.data);
+                setErrorMessage('');
+            }
+        } catch (error) {
+            console.error(
+                'There was an error retrieving the venues list: ',
+                error,
+            );
+            setErrorMessage('There was an error retrieving the venues list.');
+        }
+    };
 
     const handleChange = (e) => {
         setErrorMessage('');
@@ -34,10 +57,6 @@ export default function AddShowForm() {
 
         if (!Object.values(formData).every((value) => value !== '')) {
             setFormError('You have not filled in all the fields.');
-            return;
-        }
-        if (!formData.show_poster.includes('i.imgur')) {
-            setFormError('Your poster link will not work.');
             return;
         }
         if (!isValidDate(formData.date)) {
@@ -61,6 +80,7 @@ export default function AddShowForm() {
             );
             if (response.status === 201) {
                 setSuccessMessage('The show has been added!');
+                setFormData(intitialState);
             } else {
                 setErrorMessage('There was an error creating the show.');
             }
@@ -73,66 +93,23 @@ export default function AddShowForm() {
         <>
             <h1>Add Show Form</h1>
             <form className="show-form" action="" onSubmit={handleSubmit}>
-                <p className="instructions">
-                    Please follow the formatting exactly when submitting the
-                    data.
-                </p>
-                <ol className="image-instructions">
-                    <li className="instructions">
-                        To create an image link, go to{' '}
-                        <a href="https://imgur.com/"> Imgur.com </a>and sign in
-                        using Google and the band&apos;s email.
-                    </li>
-                    <li className="instructions">
-                        Then go to Account/Images and click Add Images.
-                    </li>
-                    <li className="instructions">
-                        Upload the poster image and save.
-                    </li>
-                    <li className="instructions">
-                        Then click on the saved image, right click the image and
-                        copy the image address.
-                    </li>
-                    <li className="instructions">
-                        DO NOT use the Image link displayed near the image.
-                    </li>
-                    <li className="instructions">
-                        It should match the EXACT format of the link shown
-                        below.
-                    </li>
-                </ol>
-                <label htmlFor="">Venue:</label>
-                <p className="format-example">Format: The Light Horse</p>
-                <input
-                    type="text"
+                <label className="song-form-label" htmlFor="">
+                    Select the venue:
+                </label>
+                <select
                     name="venue"
-                    value={formData.venue}
-                    className="data-input"
-                    placeholder="Venue Name"
+                    id="venue"
+                    className="select-input"
                     onChange={handleChange}
-                />
-                <label htmlFor="">Show Poster:</label>
-                <p className="format-example">
-                    Format: https://i.imgur.com/mPI5Kkl.png
-                </p>
-                <input
-                    type="text"
-                    name="show_poster"
-                    value={formData.show_poster}
-                    className="data-input"
-                    placeholder="Poster URL"
-                    onChange={handleChange}
-                />
-                <label htmlFor="">Location:</label>
-                <p className="format-example">Format: Alexandria, VA</p>
-                <input
-                    type="text"
-                    name="location"
-                    value={formData.location}
-                    className="data-input"
-                    placeholder="Location"
-                    onChange={handleChange}
-                />
+                >
+                    <option value=""></option>
+                    {venues?.map((venue) => (
+                        <option value={venue._id} key={venue._id}>
+                            {venue.name}
+                        </option>
+                    ))}
+                </select>
+
                 <label htmlFor="">Date:</label>
                 <p className="format-example">Format: 2023-09-30</p>
                 <input
@@ -143,26 +120,7 @@ export default function AddShowForm() {
                     placeholder="Date"
                     onChange={handleChange}
                 />
-                <label htmlFor="">Time:</label>
-                <p className="format-example">Format: 9:30pm - 1:00am</p>
-                <input
-                    type="text"
-                    name="time"
-                    value={formData.time}
-                    className="data-input"
-                    placeholder="Time"
-                    onChange={handleChange}
-                />
-                <label htmlFor="">Cover:</label>
-                <p className="format-example">Format: Free || $5</p>
-                <input
-                    type="text"
-                    name="cover"
-                    value={formData.cover}
-                    className="data-input"
-                    placeholder="Cover"
-                    onChange={handleChange}
-                />
+
                 {formError && <p className="error-message">{formError}</p>}
                 {errorMessage && (
                     <p className="submission-error">{errorMessage}</p>

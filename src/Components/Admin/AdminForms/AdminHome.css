@@ -93,6 +93,15 @@ body {
     margin: 1rem 0;
 }
 
+.radio-button-input-wrapper {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.radio-button-input {
+    margin-right: 0.5rem;
+}
+
 .confirm-delete-modal {
     display: flex;
     flex-direction: column;

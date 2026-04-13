@@ -1,0 +1,25 @@
+.privacy-page-content-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.extras-body-text {
+    margin-top: 1.5rem;
+    text-align: center;
+    line-height: 2rem;
+    width: 40%;
+    height: 50vh;
+    color: white;
+}
+
+@media screen and (max-width: 900px) {
+    .extras-body-text {
+        width: 70%;
+        line-height: 1.5rem;
+        height: 30dvh;
+    }
+}
