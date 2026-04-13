@@ -78,6 +78,30 @@ export default function AddVenueForm() {
                     Please follow the formatting exactly when submitting the
                     data.
                 </p>
+                <ol className="image-instructions">
+                    <li className="instructions">
+                        To create an image link, go to{' '}
+                        <a href="https://imgur.com/"> Imgur.com </a>and sign in
+                        using Google and the band&apos;s email.
+                    </li>
+                    <li className="instructions">
+                        Then go to Account/Images and click Add Images.
+                    </li>
+                    <li className="instructions">
+                        Upload the poster image and save.
+                    </li>
+                    <li className="instructions">
+                        Then click on the saved image, right click the image and
+                        copy the image address.
+                    </li>
+                    <li className="instructions">
+                        DO NOT use the Image link displayed near the image.
+                    </li>
+                    <li className="instructions">
+                        It should match the EXACT format of the link shown
+                        below.
+                    </li>
+                </ol>
                 <label htmlFor="">Venue Name</label>
                 <p className="format-example">Format: The Light Horse</p>
                 <input
