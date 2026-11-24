@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../../../../config';
 
-const intitialState = {
+const initialState = {
     venue: '',
     date: '',
 };
 
 export default function AddShowForm() {
-    const [formData, setFormData] = useState(intitialState);
+    const [formData, setFormData] = useState(initialState);
     const [successMessage, setSuccessMessage] = useState('');
     const [formError, setFormError] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -80,7 +80,10 @@ export default function AddShowForm() {
             );
             if (response.status === 201) {
                 setSuccessMessage('The show has been added!');
-                setFormData(intitialState);
+                setFormData((previous) => ({
+                    ...previous,
+                    date: '',
+                }));
             } else {
                 setErrorMessage('There was an error creating the show.');
             }
@@ -101,6 +104,7 @@ export default function AddShowForm() {
                     id="venue"
                     className="select-input"
                     onChange={handleChange}
+                    value={formData.venue}
                 >
                     <option value=""></option>
                     {venues?.map((venue) => (
